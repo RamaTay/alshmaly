@@ -26,7 +26,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-main-bg bg-cover bg-center brightness-50">
+    <section id="services" className="py-20 bg-main-bg bg-cover bg-center ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#054239] mb-4">
