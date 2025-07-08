@@ -10,8 +10,8 @@ const MarqueeSection = () => {
     { icon: HandHeart, text: 'Ongoing Trader Support' },
   ];
 
-  return (
-    <section className="py-4 bg-[#edebe0] overflow-x-hidden w-full">
+  return ( 
+    <section className="py-4 bg-[#054239] overflow-x-hidden w-full">
       <div className="w-full">
         <div className="flex animate-marquee whitespace-nowrap w-max">
           {[...features, ...features, ...features].map((feature, index) => (
