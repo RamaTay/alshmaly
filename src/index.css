@@ -6,6 +6,10 @@
   html {
     scroll-behavior: smooth; 
     overflow-x: hidden;
+    background-image: url('https://i.postimg.cc/N0sTG4LF/01.png'); /* ضع هنا مسار الصورة */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   } 
   
   body {
