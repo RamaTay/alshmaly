@@ -10,7 +10,7 @@ const AboutSection = () => {
       const clientsTarget = 5000;
       const countriesTarget = 30;
       const yearsTarget = 25;
-      const duration = 2000;
+      const duration = 3000;
       const steps = 60;
       const stepDuration = duration / steps;
 
