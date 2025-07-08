@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
     overflow-x: hidden;
   } 
   
@@ -13,10 +13,7 @@
     line-height: 1.6;
     overflow-x: hidden;
 
-    background-image: url('https://i.postimg.cc/N0sTG4LF/01.png'); /* ضع هنا مسار الصورة */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+    
   }
 
   * {
