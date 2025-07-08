@@ -63,7 +63,7 @@ const AdminLayout = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
@@ -74,8 +74,10 @@ const AdminLayout = () => {
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
-        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+      } transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col`}>
+        
+        {/* Logo Section */}
+        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200 flex-shrink-0">
           <div className="flex items-center space-x-3">
             <img 
               src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
@@ -95,13 +97,14 @@ const AdminLayout = () => {
           </button>
         </div>
 
-        <nav className="mt-6 px-3">
-          <div className="space-y-1">
+        {/* Navigation */}
+        <nav className="flex-1 px-3 py-6 overflow-y-auto">
+          <div className="space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`group flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                className={`group flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
                   isActive(item.href)
                     ? 'bg-[#b9a779] text-white'
                     : 'text-gray-700 hover:bg-gray-100 hover:text-[#054239]'
@@ -109,20 +112,20 @@ const AdminLayout = () => {
                 onClick={() => setSidebarOpen(false)}
               >
                 <item.icon
-                  className={`mr-3 h-5 w-5 ${
+                  className={`mr-3 h-5 w-5 flex-shrink-0 ${
                     isActive(item.href) ? 'text-white' : 'text-gray-400 group-hover:text-[#b9a779]'
                   }`}
                 />
-                {item.name}
+                <span className="truncate">{item.name}</span>
               </Link>
             ))}
           </div>
         </nav>
 
         {/* User info and logout */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
+        <div className="flex-shrink-0 p-4 border-t border-gray-200">
           <div className="flex items-center space-x-3 mb-3">
-            <div className="w-8 h-8 bg-[#b9a779] rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#b9a779] rounded-full flex items-center justify-center flex-shrink-0">
               <User size={16} className="text-white" />
             </div>
             <div className="flex-1 min-w-0">
@@ -136,16 +139,16 @@ const AdminLayout = () => {
             onClick={handleLogout}
             className="w-full flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 hover:text-red-600 transition-colors duration-200"
           >
-            <LogOut className="mr-3 h-4 w-4" />
-            Sign Out
+            <LogOut className="mr-3 h-4 w-4 flex-shrink-0" />
+            <span>Sign Out</span>
           </button>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Top bar */}
-        <div className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
+        <div className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200 flex-shrink-0">
           <div className="flex items-center justify-between h-16 px-6">
             <button
               onClick={() => setSidebarOpen(true)}
@@ -163,7 +166,7 @@ const AdminLayout = () => {
         </div>
 
         {/* Page content */}
-        <main className="p-6">
+        <main className="flex-1 p-6 overflow-auto">
           <Outlet />
         </main>
       </div>
