@@ -8,7 +8,7 @@ const BlogSection = () => {
   const { posts: blogPosts, loading, error } = useRecentPosts(3);
 
   return (
-    <section id="blog" className="py-20 bg-white">
+    <section id="blog" className="py-20 bg-main-bg bg-cover bg-center">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#054239] mb-4">
