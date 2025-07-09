@@ -72,8 +72,8 @@ const ProductsSection = () => {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-[#edebe0] mb-2">{product.name}</h3>
-                  <p className="text-white mb-4">{product.description}</p>
+                  <h3 className="text-xl font-semibold text-[#054239] mb-2">{product.name}</h3>
+                  <p className="text-gray-600 mb-4">{product.description}</p>
                   <Link
                     to={`/product/${product.id}`}
                     className="w-full bg-[#b9a779] hover:bg-[#054239] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
@@ -91,7 +91,7 @@ const ProductsSection = () => {
         <div className="text-center">
           <Link 
             to="/products"
-            className="bg-[#b9a779] hover:bg-[#edebe0] text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg inline-block"
+            className="bg-[#054239] hover:bg-[#b9a779] text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg inline-block"
           >
             Explore All Products
           </Link>
