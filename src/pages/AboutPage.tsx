@@ -207,26 +207,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Statistics */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#b9a779] mb-2">30+</div>
-              <p className="text-gray-600 font-medium">Export Countries</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#b9a779] mb-2">15,000+</div>
-              <p className="text-gray-600 font-medium">Tons Exported Annually</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#b9a779] mb-2">5,000+</div>
-              <p className="text-gray-600 font-medium">Satisfied Clients</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#b9a779] mb-2">25</div>
-              <p className="text-gray-600 font-medium">Years of Excellence</p>
-            </div>
-          </div>
-        </div>
+ 
       </section>
     </div>
   );
