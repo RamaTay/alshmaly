@@ -5,7 +5,7 @@ const AboutSection = () => {
   const [countries, setCountries] = useState(0);
   const [years, setYears] = useState(0);
   const sectionRef = useRef(null);
-  const intervalRef = useRef(null); // لحفظ الـ interval
+  const intervalRef = useRef(null); 
 
   const animateCounters = () => {
     const clientsTarget = 5000;
@@ -17,7 +17,6 @@ const AboutSection = () => {
 
     let currentStep = 0;
 
-    // تنظيف عداد سابق إذا موجود
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
