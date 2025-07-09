@@ -9,7 +9,7 @@ const MarqueeSection = () => {
     { icon: Users, text: 'Customer Satisfaction First' },
     { icon: HandHeart, text: 'Ongoing Trader Support' },
   ];
-
+ 
   return ( 
     <section className="py-2 bg-[#054239] border-b-1 border-b-[#b9a779] overflow-x-hidden w-full">
       <div className="w-full">
