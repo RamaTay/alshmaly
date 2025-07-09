@@ -71,7 +71,7 @@ const BlogSection = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
                 <Link 
                   to={`/blog/${post.id}`}
-                  className="flex items-center text-[#b9a779] hover:text-[#054239] font-medium transition-colors duration-300 group"
+                  className="flex items-center text-[#054239] hover:text-[#b9a779] font-medium transition-colors duration-300 group"
                 >
                   Read More
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
