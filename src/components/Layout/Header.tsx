@@ -17,7 +17,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-3">
             <img 
               src="https://i.postimg.cc/sgdxhP1p/logo.png" 
-              alt="Al-Shamali Logo" 
+              alt="Al-Shamaly Logo" 
               className="h-16 w-15 object-contain"
             />
             <div className="flex flex-col">
