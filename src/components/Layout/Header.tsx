@@ -16,7 +16,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
+              src="https://i.postimg.cc/sgdxhP1p/logo.png" 
               alt="Al-Shamali Logo" 
               className="h-12 w-12 object-contain"
             />
