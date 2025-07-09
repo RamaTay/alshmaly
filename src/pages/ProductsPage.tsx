@@ -196,7 +196,13 @@ const ProductsPage = () => {
                   </div>
                   <div className={`${viewMode === 'list' ? 'ml-4 flex-1' : 'p-6'}`}>
                     <h3 className="text-xl font-semibold text-[#054239] mb-2">{product.name}</h3>
-                    <p className="text-gray-600 mb-2">{product.description}</p>
+                   <p className="text-gray-600 mb-2">
+  {product.description.length > 100
+    ? product.description.slice(0, 100) + "..."
+    : product.description
+  }
+</p>
+
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-2xl font-bold text-[#b9a779]">
                         ${defaultPackage?.price || product.base_price}
