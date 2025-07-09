@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useProducts } from '../../hooks/useProducts';
+import { HomepageAPI } from '../../lib/api/homepage';
 import { Loader2 } from 'lucide-react';
 
 const ProductsSection = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const { products, categories, loading, error } = useProducts({
-    category: activeCategory === 'all' ? undefined : activeCategory,
-    sortBy: 'name'
-  });
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Prepare categories for display
-  const displayCategories = [
-    { id: 'all', name: 'All Products', slug: 'all' },
-    ...categories
-  ];
+  React.useEffect(() => {
+    const fetchHomepageProducts = async () => {
+      try {
+        setLoading(true);
+        const homepageProducts = await HomepageAPI.getHomepageProducts();
+        setProducts(homepageProducts.map(hp => hp.product));
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHomepageProducts();
+  }, []);
+
 
   return (
     <section id="products" className="py-20 bg-[#054239] overflow-hidden w-full">
@@ -61,7 +70,7 @@ const ProductsSection = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.slice(0, 6).map(product => (
+              {products.map(product => (
               <div key={product.id} className="bg-[#edebe0] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full">
                 <div className="relative overflow-hidden">
                   <img  

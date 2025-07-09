@@ -108,6 +108,23 @@ export class BlogAPI {
 
   // Get related posts (same category, excluding current post)
   static async getRelatedPosts(postId: string, categoryId?: string, limit = 3): Promise<BlogPost[]> {
+    // First try to get manually defined related posts
+    const { data: relatedData, error: relatedError } = await supabase
+      .from('blog_post_relations')
+      .select(`
+        related_blog_post:blog_posts(
+          *,
+          category:blog_categories(*)
+        )
+      `)
+      .eq('blog_post_id', postId)
+      .limit(limit);
+
+    if (!relatedError && relatedData && relatedData.length > 0) {
+      return relatedData.map(item => item.related_blog_post);
+    }
+
+    // Fallback to category-based related posts if no manual relations exist
     if (!categoryId) return [];
 
     const { data, error } = await supabase

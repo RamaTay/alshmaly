@@ -110,6 +110,27 @@ export class ProductsAPI {
 
   // Get related products (same category, excluding current product)
   static async getRelatedProducts(productId: string, categoryId?: string, limit = 4): Promise<Product[]> {
+    // First try to get manually defined related products
+    const { data: relatedData, error: relatedError } = await supabase
+      .from('product_relations')
+      .select(`
+        related_product:products(
+          *,
+          category:categories(*),
+          images:product_images(*)
+        )
+      `)
+      .eq('product_id', productId)
+      .limit(limit);
+
+    if (!relatedError && relatedData && relatedData.length > 0) {
+      return relatedData.map(item => ({
+        ...item.related_product,
+        images: item.related_product.images?.sort((a, b) => a.sort_order - b.sort_order) || []
+      }));
+    }
+
+    // Fallback to category-based related products if no manual relations exist
     if (!categoryId) return [];
 
     const { data, error } = await supabase

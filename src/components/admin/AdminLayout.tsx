@@ -10,7 +10,8 @@ import {
   LogOut, 
   Menu, 
   X,
-  User
+  User,
+  Home
 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
@@ -52,6 +53,7 @@ const AdminLayout = () => {
 
   const navigation = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
+    { name: 'Homepage', href: '/admin/homepage', icon: Home },
     { name: 'Products', href: '/admin/products', icon: Package },
     { name: 'Categories', href: '/admin/categories', icon: FolderOpen },
     { name: 'Blog Posts', href: '/admin/blog-posts', icon: FileText },

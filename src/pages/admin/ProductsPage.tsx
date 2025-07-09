@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Search, Edit, Trash2, Eye, Package, Image as ImageIcon, X } from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Eye, Package, Image as ImageIcon, X, Link as LinkIcon } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
+import { RelationsAPI } from '../../lib/api/relations';
 import type { Product, Category } from '../../lib/supabase';
+import type { ProductRelation } from '../../lib/api/relations';
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -12,6 +14,9 @@ const ProductsPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [showRelationsModal, setShowRelationsModal] = useState<string | null>(null);
+  const [relations, setRelations] = useState<ProductRelation[]>([]);
+  const [availableProducts, setAvailableProducts] = useState<Product[]>([]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -187,6 +192,40 @@ const ProductsPage = () => {
     } catch (error) {
       console.error('Error deleting product:', error);
       alert('Error deleting product. Please try again.');
+    }
+  };
+
+  const fetchRelations = async (productId: string) => {
+    try {
+      const [relationsData, allProducts] = await Promise.all([
+        RelationsAPI.getProductRelations(productId),
+        supabase.from('products').select('*').neq('id', productId)
+      ]);
+      
+      setRelations(relationsData);
+      setAvailableProducts(allProducts.data || []);
+    } catch (error) {
+      console.error('Error fetching relations:', error);
+    }
+  };
+
+  const handleAddRelation = async (productId: string, relatedProductId: string, relationType: string) => {
+    try {
+      await RelationsAPI.addProductRelation(productId, relatedProductId, relationType as any);
+      await fetchRelations(productId);
+    } catch (error) {
+      console.error('Error adding relation:', error);
+      alert('Error adding relation. Please try again.');
+    }
+  };
+
+  const handleRemoveRelation = async (relationId: string, productId: string) => {
+    try {
+      await RelationsAPI.removeProductRelation(relationId);
+      await fetchRelations(productId);
+    } catch (error) {
+      console.error('Error removing relation:', error);
+      alert('Error removing relation. Please try again.');
     }
   };
 
@@ -379,6 +418,16 @@ const ProductsPage = () => {
                         title="Edit Product"
                       >
                         <Edit size={16} />
+                      </button>
+                      <button
+                        onClick={() => {
+                          setShowRelationsModal(product.id);
+                          fetchRelations(product.id);
+                        }}
+                        className="text-[#b9a779] hover:text-[#054239] p-1 rounded"
+                        title="Manage Related Products"
+                      >
+                        <LinkIcon size={16} />
                       </button>
                       <button
                         onClick={() => setDeleteConfirm(product.id)}
@@ -684,6 +733,102 @@ const ProductsPage = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Related Products Modal */}
+      {showRelationsModal && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-10 mx-auto p-5 border w-11/12 md:w-4/5 lg:w-3/4 shadow-lg rounded-md bg-white">
+            <div className="mt-3">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-[#054239]">Manage Related Products</h3>
+                <button
+                  onClick={() => setShowRelationsModal(null)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Current Relations */}
+                <div>
+                  <h4 className="text-lg font-semibold text-[#054239] mb-4">Current Related Products</h4>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                    {relations.map((relation) => (
+                      <div key={relation.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                        <div className="flex items-center">
+                          <img
+                            src={relation.related_product?.images?.[0]?.image_url || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=100&h=100'}
+                            alt={relation.related_product?.name}
+                            className="h-10 w-10 rounded-lg object-cover mr-3"
+                          />
+                          <div>
+                            <div className="font-medium text-[#054239]">{relation.related_product?.name}</div>
+                            <div className="text-sm text-gray-500 capitalize">{relation.relation_type}</div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleRemoveRelation(relation.id, showRelationsModal!)}
+                          className="text-red-600 hover:text-red-800 p-1"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    ))}
+                    {relations.length === 0 && (
+                      <p className="text-gray-500 text-center py-4">No related products added yet.</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Add Relations */}
+                <div>
+                  <h4 className="text-lg font-semibold text-[#054239] mb-4">Add Related Products</h4>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                    {availableProducts
+                      .filter(product => !relations.some(rel => rel.related_product_id === product.id))
+                      .map((product) => (
+                        <div key={product.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                          <div className="flex items-center">
+                            <img
+                              src={product.images?.[0]?.image_url || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=100&h=100'}
+                              alt={product.name}
+                              className="h-10 w-10 rounded-lg object-cover mr-3"
+                            />
+                            <div>
+                              <div className="font-medium text-[#054239]">{product.name}</div>
+                              <div className="text-sm text-gray-500">{product.category?.name}</div>
+                            </div>
+                          </div>
+                          <div className="flex space-x-2">
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, product.id, 'related')}
+                              className="bg-[#b9a779] hover:bg-[#054239] text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Related
+                            </button>
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, product.id, 'similar')}
+                              className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Similar
+                            </button>
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, product.id, 'complementary')}
+                              className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Complementary
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

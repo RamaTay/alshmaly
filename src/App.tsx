@@ -20,6 +20,7 @@ import BlogPostsPage from './pages/admin/BlogPostsPage';
 import BlogCategoriesPage from './pages/admin/BlogCategoriesPage';
 import QuotesPage from './pages/admin/QuotesPage';
 import ContactsPage from './pages/admin/ContactsPage';
+import HomepageManagementPage from './pages/admin/HomepageManagementPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/admin/login" element={<LoginPage />} />
           <Route path="/admin/*" element={<AdminLayout />}>
             <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="homepage" element={<HomepageManagementPage />} />
             <Route path="products" element={<ProductsAdminPage />} />
             <Route path="categories" element={<CategoriesPage />} />
             <Route path="blog-posts" element={<BlogPostsPage />} />

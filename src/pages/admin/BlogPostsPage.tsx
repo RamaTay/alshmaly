@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Search, Edit, Trash2, Eye, Calendar } from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Eye, Calendar, Link as LinkIcon, X } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
+import { RelationsAPI } from '../../lib/api/relations';
 import type { BlogPost, BlogCategory } from '../../lib/supabase';
+import type { BlogPostRelation } from '../../lib/api/relations';
 
 const BlogPostsPage = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -12,6 +14,9 @@ const BlogPostsPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [showRelationsModal, setShowRelationsModal] = useState<string | null>(null);
+  const [relations, setRelations] = useState<BlogPostRelation[]>([]);
+  const [availablePosts, setAvailablePosts] = useState<BlogPost[]>([]);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -122,6 +127,40 @@ const BlogPostsPage = () => {
     } catch (error) {
       console.error('Error deleting post:', error);
       alert('Error deleting post. Please try again.');
+    }
+  };
+
+  const fetchRelations = async (postId: string) => {
+    try {
+      const [relationsData, allPosts] = await Promise.all([
+        RelationsAPI.getBlogPostRelations(postId),
+        supabase.from('blog_posts').select('*').neq('id', postId)
+      ]);
+      
+      setRelations(relationsData);
+      setAvailablePosts(allPosts.data || []);
+    } catch (error) {
+      console.error('Error fetching relations:', error);
+    }
+  };
+
+  const handleAddRelation = async (postId: string, relatedPostId: string, relationType: string) => {
+    try {
+      await RelationsAPI.addBlogPostRelation(postId, relatedPostId, relationType as any);
+      await fetchRelations(postId);
+    } catch (error) {
+      console.error('Error adding relation:', error);
+      alert('Error adding relation. Please try again.');
+    }
+  };
+
+  const handleRemoveRelation = async (relationId: string, postId: string) => {
+    try {
+      await RelationsAPI.removeBlogPostRelation(relationId);
+      await fetchRelations(postId);
+    } catch (error) {
+      console.error('Error removing relation:', error);
+      alert('Error removing relation. Please try again.');
     }
   };
 
@@ -277,6 +316,16 @@ const BlogPostsPage = () => {
                         <Edit size={16} />
                       </button>
                       <button
+                        onClick={() => {
+                          setShowRelationsModal(post.id);
+                          fetchRelations(post.id);
+                        }}
+                        className="text-[#b9a779] hover:text-[#054239] p-1 rounded"
+                        title="Manage Related Posts"
+                      >
+                        <LinkIcon size={16} />
+                      </button>
+                      <button
                         onClick={() => setDeleteConfirm(post.id)}
                         className="text-red-600 hover:text-red-900 p-1 rounded"
                         title="Delete Post"
@@ -429,6 +478,102 @@ const BlogPostsPage = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Related Posts Modal */}
+      {showRelationsModal && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-10 mx-auto p-5 border w-11/12 md:w-4/5 lg:w-3/4 shadow-lg rounded-md bg-white">
+            <div className="mt-3">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-[#054239]">Manage Related Blog Posts</h3>
+                <button
+                  onClick={() => setShowRelationsModal(null)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Current Relations */}
+                <div>
+                  <h4 className="text-lg font-semibold text-[#054239] mb-4">Current Related Posts</h4>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                    {relations.map((relation) => (
+                      <div key={relation.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                        <div className="flex items-center">
+                          <img
+                            src={relation.related_blog_post?.featured_image || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=100&h=100'}
+                            alt={relation.related_blog_post?.title}
+                            className="h-10 w-10 rounded-lg object-cover mr-3"
+                          />
+                          <div>
+                            <div className="font-medium text-[#054239]">{relation.related_blog_post?.title}</div>
+                            <div className="text-sm text-gray-500 capitalize">{relation.relation_type}</div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleRemoveRelation(relation.id, showRelationsModal!)}
+                          className="text-red-600 hover:text-red-800 p-1"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    ))}
+                    {relations.length === 0 && (
+                      <p className="text-gray-500 text-center py-4">No related posts added yet.</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Add Relations */}
+                <div>
+                  <h4 className="text-lg font-semibold text-[#054239] mb-4">Add Related Posts</h4>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                    {availablePosts
+                      .filter(post => !relations.some(rel => rel.related_blog_post_id === post.id))
+                      .map((post) => (
+                        <div key={post.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                          <div className="flex items-center">
+                            <img
+                              src={post.featured_image || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=100&h=100'}
+                              alt={post.title}
+                              className="h-10 w-10 rounded-lg object-cover mr-3"
+                            />
+                            <div>
+                              <div className="font-medium text-[#054239]">{post.title}</div>
+                              <div className="text-sm text-gray-500">{post.category?.name}</div>
+                            </div>
+                          </div>
+                          <div className="flex space-x-2">
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, post.id, 'related')}
+                              className="bg-[#b9a779] hover:bg-[#054239] text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Related
+                            </button>
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, post.id, 'similar')}
+                              className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Similar
+                            </button>
+                            <button
+                              onClick={() => handleAddRelation(showRelationsModal!, post.id, 'follow_up')}
+                              className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm transition-colors duration-200"
+                            >
+                              Follow-up
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

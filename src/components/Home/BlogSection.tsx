@@ -1,11 +1,29 @@
 import React from 'react';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useRecentPosts } from '../../hooks/useBlog';
+import { HomepageAPI } from '../../lib/api/homepage';
 import { Loader2 } from 'lucide-react';
 
 const BlogSection = () => {
-  const { posts: blogPosts, loading, error } = useRecentPosts(3);
+  const [blogPosts, setBlogPosts] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const fetchHomepageBlogPosts = async () => {
+      try {
+        setLoading(true);
+        const homepagePosts = await HomepageAPI.getHomepageBlogPosts();
+        setBlogPosts(homepagePosts.map(hp => hp.blog_post));
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHomepageBlogPosts();
+  }, []);
 
   return (
     <section id="blog" className="py-20 bg-[#edebe0]">
