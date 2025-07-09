@@ -56,7 +56,7 @@ const ServicesSection = () => {
         </div>
  
         <div className="text-center mt-12">
-          <button className="bg-[#b9a779] hover:bg-white hover:text-[#054239] border-4 border-transparent rounded-2xl p-8 hover:border-[#b9a779] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg">
+          <button className="bg-[#b9a779] hover:bg-white hover:text-[#054239] border-2 border-transparent rounded-2xl p-8 hover:border-[#b9a779] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg">
             Contact Us Today 
           </button>
         </div>
