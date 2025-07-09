@@ -163,11 +163,14 @@ const ProductDetailsPage = () => {
                 </div>
               </div>
               <div className="flex space-x-4">
-                <button className="flex-1 bg-[#b9a779] hover:bg-[#054239] text-white py-4 px-6 rounded-full font-semibold transition-all duration-300">
-                  onClick={handleQuoteRequest}
-                  disabled={quoteLoading || !selectedPackage}
-                  {quoteLoading ? 'Submitting...' : 'Request Quote'}
-                </button>
+                <button 
+  className="flex-1 bg-[#b9a779] hover:bg-[#054239] text-white py-4 px-6 rounded-full font-semibold transition-all duration-300"
+  onClick={handleQuoteRequest}
+  disabled={quoteLoading || !selectedPackage}
+>
+  {quoteLoading ? 'Submitting...' : 'Request Quote'}
+</button>
+
                 <button className="flex-1 border-2 border-[#b9a779] text-[#b9a779] hover:bg-[#b9a779] hover:text-white py-4 px-6 rounded-full font-semibold transition-all duration-300">
                   Contact Supplier
                 </button>
