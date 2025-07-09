@@ -76,7 +76,7 @@ const ProductsSection = () => {
                   <p className="text-gray-600 mb-4">{product.description}</p>
                   <Link
                     to={`/product/${product.id}`}
-                    className="w-full bg-[#b9a779] hover:bg-[#054239] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
+                    className="w-full bg-[#edebe0] hover:bg-[#054239] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
                   >
                     View Details
                   </Link>
