@@ -13,12 +13,12 @@ const Header = () => {
 
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo */} 
           <Link to="/" className="flex items-center space-x-3">
             <img 
               src="https://i.postimg.cc/sgdxhP1p/logo.png" 
               alt="Al-Shamali Logo" 
-              className="h-15 w-18 object-contain"
+              className="h-20 w-18 object-contain"
             />
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-[#054239]">Al-Shamaly</h1>
