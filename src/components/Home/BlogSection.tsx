@@ -68,7 +68,7 @@ const BlogSection = () => {
                 <h3 className="text-xl font-semibold text-[#054239] mb-3 group-hover:text-gray-600 transition-colors duration-300">
                   {post.title}
                 </h3>
-                <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
                 <Link 
                   to={`/blog/${post.id}`}
                   className="flex items-center text-[#054239] hover:text-gray-600 font-medium transition-colors duration-300 group"
