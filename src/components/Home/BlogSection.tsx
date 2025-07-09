@@ -65,7 +65,7 @@ const BlogSection = () => {
                     day: 'numeric' 
                   })}
                 </div>
-                <h3 className="text-xl font-semibold text-[#054239] mb-3 group-hover:text-[#edebe0] transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-[#054239] mb-3 group-hover:text-white transition-colors duration-300">
                   {post.title}
                 </h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
