@@ -17,7 +17,7 @@ const Footer = () => {
             />
               <div>
                 <h3 className="text-xl font-bold">Al-Shamaly</h3>
-                <p className="text-[#b9a779] text-sm">Quality Speaks</p>
+              
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
