@@ -4,45 +4,54 @@ const AboutSection = () => {
   const [clients, setClients] = useState(0);
   const [countries, setCountries] = useState(0);
   const [years, setYears] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
+  const intervalRef = useRef(null); // لحفظ الـ interval
+
+  const animateCounters = () => {
+    const clientsTarget = 5000;
+    const countriesTarget = 30;
+    const yearsTarget = 25;
+    const duration = 3000;
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+
+    // تنظيف عداد سابق إذا موجود
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    setClients(0);
+    setCountries(0);
+    setYears(0);
+
+    intervalRef.current = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setClients(Math.floor(clientsTarget * progress));
+      setCountries(Math.floor(countriesTarget * progress));
+      setYears(Math.floor(yearsTarget * progress));
+
+      if (currentStep >= steps) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+        setClients(clientsTarget);
+        setCountries(countriesTarget);
+        setYears(yearsTarget);
+      }
+    }, stepDuration);
+  };
 
   useEffect(() => {
-    const animateCounters = () => {
-      const clientsTarget = 5000;
-      const countriesTarget = 30;
-      const yearsTarget = 25;
-      const duration = 3000;
-      const steps = 60;
-      const stepDuration = duration / steps;
-
-      let currentStep = 0;
-
-      const interval = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-
-        setClients(Math.floor(clientsTarget * progress));
-        setCountries(Math.floor(countriesTarget * progress));
-        setYears(Math.floor(yearsTarget * progress));
-
-        if (currentStep >= steps) {
-          clearInterval(interval);
-          setClients(clientsTarget);
-          setCountries(countriesTarget);
-          setYears(yearsTarget);
-        }
-      }, stepDuration);
-    };
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
+        if (entry.isIntersecting) {
           animateCounters();
-          setHasAnimated(true); // نضمن عدم التكرار
         }
       },
-      { threshold: 0.5 } // يبدأ العد عند ظهور نصف السكشن
+      { threshold: 0.5 }
     );
 
     if (sectionRef.current) {
@@ -53,9 +62,11 @@ const AboutSection = () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
-  }, [hasAnimated]);
-
+  }, []);
   return (
     <section id="about" ref={sectionRef} className="py-20 bg-[#edebe0]">
       <div className="container mx-auto px-4">
