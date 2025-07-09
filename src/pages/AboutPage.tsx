@@ -158,7 +158,7 @@ const AboutPage = () => {
                   </div>
                   
                   {/* Timeline Dot */}
-                  <div className="hidden lg:block w-6 h-6 bg-[#b9a779] rounded-full border-4 border-white shadow-lg z-10"></div>
+                  <div className="hidden lg:block w-6 h-6 bg-[#054239] rounded-full border-4 border-white shadow-lg z-10"></div>
                   
                   <div className="lg:w-1/2"></div>
                 </div>
