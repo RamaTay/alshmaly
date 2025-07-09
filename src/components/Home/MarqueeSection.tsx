@@ -25,7 +25,7 @@ const MarqueeSection = () => {
               <span className="ml-4 text-xl font-semibold">{feature.text}</span>
             </div>
           ))}
-        </div>
+        </div> 
       </div>
       
       <style jsx>{`
