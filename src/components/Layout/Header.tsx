@@ -7,7 +7,7 @@ const Header = () => {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
-
+ 
   return (
 <header className="bg-white/90 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
 
