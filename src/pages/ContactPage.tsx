@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { ContactAPI } from '../lib/api/contact';
 
 const ContactPage = () => {
@@ -12,6 +12,7 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +48,33 @@ const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqData = [
+    {
+      question: "What is your minimum order quantity?",
+      answer: "Our minimum order quantity varies by product. For most items, it's 1 ton, but we can accommodate smaller orders for sample testing."
+    },
+    {
+      question: "Do you provide certificates of origin and quality?",
+      answer: "Yes, we provide all necessary documentation including certificates of origin, quality certificates, and phytosanitary certificates for international shipping."
+    },
+    {
+      question: "What are your payment terms?",
+      answer: "We accept various payment methods including T/T, L/C, and other internationally recognized payment terms. Specific terms can be discussed based on order size and relationship."
+    },
+    {
+      question: "How long does shipping take?",
+      answer: "Shipping times vary by destination. Typically, it takes 2-4 weeks for sea freight and 3-7 days for air freight to most international destinations."
+    },
+    {
+      question: "Do you offer private labeling services?",
+      answer: "Yes, we offer private labeling services with your brand. We can customize packaging design and labeling according to your specifications."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -300,31 +328,26 @@ const ContactPage = () => {
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
-            {[
-              {
-                question: "What is your minimum order quantity?",
-                answer: "Our minimum order quantity varies by product. For most items, it's 1 ton, but we can accommodate smaller orders for sample testing."
-              },
-              {
-                question: "Do you provide certificates of origin and quality?",
-                answer: "Yes, we provide all necessary documentation including certificates of origin, quality certificates, and phytosanitary certificates for international shipping."
-              },
-              {
-                question: "What are your payment terms?",
-                answer: "We accept various payment methods including T/T, L/C, and other internationally recognized payment terms. Specific terms can be discussed based on order size and relationship."
-              },
-              {
-                question: "How long does shipping take?",
-                answer: "Shipping times vary by destination. Typically, it takes 2-4 weeks for sea freight and 3-7 days for air freight to most international destinations."
-              },
-              {
-                question: "Do you offer private labeling services?",
-                answer: "Yes, we offer private labeling services with your brand. We can customize packaging design and labeling according to your specifications."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-[#054239] mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+            {faqData.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <h3 className="text-lg font-semibold text-[#054239] pr-4">{faq.question}</h3>
+                  <div className="flex-shrink-0">
+                    {openFAQ === index ? (
+                      <ChevronUp size={20} className="text-[#b9a779]" />
+                    ) : (
+                      <ChevronDown size={20} className="text-[#b9a779]" />
+                    )}
+                  </div>
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

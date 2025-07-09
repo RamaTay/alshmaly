@@ -33,7 +33,16 @@ export class BlogAPI {
 
     // Apply filters
     if (filters.category && filters.category !== 'All') {
-      query = query.eq('category.slug', filters.category.toLowerCase().replace(/\s+/g, '-'));
+      // First get the category ID by name or slug
+      const { data: categoryData } = await supabase
+        .from('blog_categories')
+        .select('id')
+        .or(`name.eq.${filters.category},slug.eq.${filters.category.toLowerCase().replace(/\s+/g, '-')}`)
+        .single();
+      
+      if (categoryData) {
+        query = query.eq('category_id', categoryData.id);
+      }
     }
 
     if (filters.published !== undefined) {

@@ -6,7 +6,7 @@ import { useBlogPosts } from '../hooks/useBlog';
 const BlogPage = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('All');
   const { posts: blogPosts, categories, loading, error } = useBlogPosts({
-    category: selectedCategory
+    category: selectedCategory === 'All' ? undefined : selectedCategory
   });
 
   // Prepare categories for display

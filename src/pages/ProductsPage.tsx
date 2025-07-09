@@ -29,11 +29,16 @@ const ProductsPage = () => {
 
   // Filter products by weight (client-side since it's a package property)
   const filteredProducts = useMemo(() => {
-    if (selectedWeight === 'all') return products;
+    let filtered = products;
     
-    return products.filter(product => 
-      product.packages?.some(pkg => pkg.weight === selectedWeight)
-    );
+    // Filter by weight if selected
+    if (selectedWeight !== 'all') {
+      filtered = filtered.filter(product => 
+        product.packages?.some(pkg => pkg.weight === selectedWeight)
+      );
+    }
+    
+    return filtered;
   }, [products, selectedWeight]);
 
   return (
