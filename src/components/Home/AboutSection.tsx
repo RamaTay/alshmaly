@@ -85,10 +85,10 @@ const AboutSection = () => {
 
           {/* Content */}
           <div>
-            <h2 className="text-4xl font-bold text-[#edebe0] mb-6">
+            <h2 className="text-4xl font-bold text-[#b9a779] mb-6">
               We bring authenticity into your world
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-[#edebe0] text-lg leading-relaxed mb-8">
               For over 25 years, Al-Shamali has been the trusted name in exporting premium Syrian agricultural products. 
               Our commitment to quality and authenticity has made us a preferred partner for traders worldwide, 
               bringing the finest legumes, spices, oils, and herbs from Syrian soil to tables across the globe.
