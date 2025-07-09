@@ -18,7 +18,7 @@ const Header = () => {
             <img 
               src="https://i.postimg.cc/sgdxhP1p/logo.png" 
               alt="Al-Shamali Logo" 
-              className="h-50 w-15 object-contain"
+              className="h-17 w-15 object-contain"
             />
             <div className="flex flex-col">
               <h1 className="text-xl font-bold text-[#054239]">Al-Shamaly</h1>
