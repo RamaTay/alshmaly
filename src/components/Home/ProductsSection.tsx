@@ -28,8 +28,9 @@ const ProductsSection = () => {
           </p>
         </div>
 
+   
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 overflow-x-auto no-scrollbar">
+            {/*  <div className="flex flex-wrap justify-center gap-4 mb-12 overflow-x-auto no-scrollbar">
           <div className="flex space-x-4 min-w-max px-4">
             {displayCategories.map(category => (
               <button
@@ -46,6 +47,7 @@ const ProductsSection = () => {
             ))}
           </div>
         </div>
+        */}
 
         {/* Products Grid */}
         <div className="w-full mb-12">
