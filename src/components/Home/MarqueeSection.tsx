@@ -11,7 +11,7 @@ const MarqueeSection = () => {
   ];
 
   return ( 
-    <section className="py-4 bg-[#edebe0] overflow-x-hidden w-full">
+    <section className="py-4 bg-[#b9a779] overflow-x-hidden w-full">
       <div className="w-full">
         <div className="flex animate-marquee whitespace-nowrap w-max">
           {[...features, ...features, ...features].map((feature, index) => (
@@ -19,7 +19,7 @@ const MarqueeSection = () => {
               key={index} 
               className="inline-flex items-center mx-8 text-white flex-shrink-0"
             >
-              <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#054239] rounded-full flex items-center justify-center">
                 <feature.icon size={24} />
               </div>
               <span className="ml-4 text-xl font-semibold">{feature.text}</span>
