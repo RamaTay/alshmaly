@@ -179,7 +179,7 @@ const AboutPage = () => {
           </div>
 
           {/* Interactive Map Placeholder */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
+          <div className="bg-[#edebe0] rounded-2xl p-8 shadow-lg mb-12">
             <div className="relative bg-gray-100 rounded-xl h-96 flex items-center justify-center mb-8">
               <div className="text-center">
                 <Globe size={64} className="text-[#b9a779] mx-auto mb-4" />
