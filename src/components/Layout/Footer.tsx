@@ -16,7 +16,7 @@ const Footer = () => {
               className="h-16 w-15 object-contain"
             />
               <div>
-                <h3 className="text-xl font-bold">Al-Shamali</h3>
+                <h3 className="text-xl font-bold">Al-Shamaly</h3>
                 <p className="text-[#b9a779] text-sm">Quality Speaks</p>
               </div>
             </div>
