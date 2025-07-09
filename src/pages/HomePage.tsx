@@ -12,8 +12,8 @@ const HomePage = () => {
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
-      <ServicesSection />
       <ProductsSection />
+      <ServicesSection />
       <BlogSection />
     </>
   );
