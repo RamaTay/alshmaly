@@ -107,7 +107,7 @@ const AboutPage = () => {
                 alt="Al-Shamali Team"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#b9a779] text-white p-6 rounded-2xl">
+              <div className="absolute -bottom-6 -right-6 bg-[#054239] text-white p-6 rounded-2xl">
                 <p className="text-sm font-semibold">Established</p>
                 <p className="text-2xl font-bold">1999</p>
               </div>
@@ -141,7 +141,7 @@ const AboutPage = () => {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#b9a779] hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#054239] hidden lg:block"></div>
 
             <div className="space-y-12">
               {timeline.map((item, index) => (
