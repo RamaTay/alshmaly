@@ -57,7 +57,7 @@ const BlogSection = () => {
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center text-[#b9a779] text-sm mb-3">
+                <div className="flex items-center text-[#054239] text-sm mb-3">
                   <Calendar size={16} className="mr-2" />
                   {new Date(post.published_at).toLocaleDateString('en-US', { 
                     year: 'numeric', 
