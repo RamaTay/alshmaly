@@ -36,11 +36,11 @@ const ServicesSection = () => {
             From packaging to delivery, we provide comprehensive solutions for your agricultural product needs
           </p>
         </div>
-
+ 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div key={index} className="group relative">
-              <div className="bg-[#054239] rounded-2xl p-8 text-center hover:bg-[#edebe0] transition-all duration-500 group-hover:shadow-xl">
+              <div className="bg-gray-50 rounded-2xl p-8 text-center hover:bg-[#054239] transition-all duration-500 group-hover:shadow-xl">
                 <div className="w-16 h-16 bg-[#b9a779] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white group-hover:text-[#054239] transition-all duration-300">
                   <service.icon size={32} />
                 </div>
