@@ -20,10 +20,10 @@ const ProductsSection = () => {
     <section id="products" className="py-20 bg-[#054239] overflow-hidden w-full">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#054239] mb-4">
+          <h2 className="text-4xl font-bold text-[#edebe0] mb-4">
             Our Products
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-[#b9a779] text-lg max-w-2xl mx-auto">
             Discover our premium selection of Syrian agricultural products, carefully selected and processed for quality
           </p>
         </div>
