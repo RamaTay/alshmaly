@@ -17,7 +17,7 @@ const MarqueeSection = () => {
           {[...features, ...features, ...features].map((feature, index) => (
             <div 
               key={index} 
-              className="inline-flex items-center mx-8 text-white flex-shrink-0"
+              className="inline-flex items-center mx-8 text-[#054239] flex-shrink-0"
             >
               <div className="w-12 h-12 bg-[#edebe0] rounded-full flex items-center justify-center">
                 <feature.icon size={24} />
