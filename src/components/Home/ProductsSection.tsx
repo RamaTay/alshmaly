@@ -32,7 +32,7 @@ const ProductsSection = () => {
           <h2 className="text-4xl font-bold text-[#054239] mb-4">
             Our Products
           </h2>
-          <p className="text-gray-50 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-100 text-lg max-w-2xl mx-auto">
             Discover our premium selection of Syrian agricultural products, carefully selected and processed for quality
           </p>
         </div>
