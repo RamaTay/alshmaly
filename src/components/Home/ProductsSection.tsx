@@ -91,7 +91,7 @@ const ProductsSection = () => {
         <div className="text-center">
           <Link 
             to="/products"
-            className="bg-[#b9a779] hover:bg-[#edebe0]] text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg inline-block"
+            className="bg-[#b9a779] hover:bg-[#edebe0] text-white px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg inline-block"
           >
             Explore All Products
           </Link>
