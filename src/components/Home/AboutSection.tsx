@@ -97,7 +97,7 @@ const AboutSection = () => {
             {/* Counters */}
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#054239] mb-2">
+                <div className="text-3xl font-bold text-[#edebe0] mb-2">
                   {clients.toLocaleString()}+
                 </div>
                 <p className="text-[#edebe0] font-medium">Satisfied Clients</p>
@@ -109,7 +109,7 @@ const AboutSection = () => {
                 <p className="text-[#edebe0] font-medium">Exporting Countries</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#054239] mb-2">
+                <div className="text-3xl font-bold text-[#b9a779] mb-2">
                   {years}
                 </div>
                 <p className="text-[#edebe0] font-medium">Years of Experience</p>
