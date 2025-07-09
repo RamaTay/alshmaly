@@ -41,7 +41,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div key={index} className="bg-[#edebe0] rounded-2xl p-8 text-center hover:bg-[#b9a779] transition-all duration-500 group shadow-md h-full flex flex-col justify-between">
               <div>
-                <div className="w-16 h-16 bg-[#054239] text-[#b9a779] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg- [#edebe0] group-hover:text-[#edebe0] transition-all duration-300">
+                <div className="w-16 h-16 bg-[#054239] text-[#b9a779] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#edebe0] group-hover:text-[#edebe0] transition-all duration-300">
                   <service.icon size={32} />
                 </div>
                 <h3 className="text-xl font-semibold text-[#b9a779] mb-4 group-hover:text-[#054239] transition-colors duration-300 min-h-[64px]">
