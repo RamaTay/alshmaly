@@ -81,7 +81,7 @@ const ProductsSection = () => {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-[#b9a779] mb-2">{product.name}</h3>
+                  <h3 className="text-xl font-semibold text-[#054239] mb-2">{product.name}</h3>
                   <p className="text-gray-600 mb-4">{product.description}</p>
                   <Link
                     to={`/product/${product.id}`}
