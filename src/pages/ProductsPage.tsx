@@ -198,7 +198,7 @@ const ProductsPage = () => {
                     <h3 className="text-xl font-semibold text-[#054239] mb-2">{product.name}</h3>
                    <p className="text-gray-600 mb-2">
   {product.description.length > 100
-    ? product.description.slice(0, 100) + "..."
+    ? product.description.slice(0, 50) + "..."
     : product.description
   }
 </p>
