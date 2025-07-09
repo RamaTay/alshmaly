@@ -34,7 +34,16 @@ export class ProductsAPI {
 
     // Apply filters
     if (filters.category && filters.category !== 'all') {
-      query = query.eq('category.slug', filters.category);
+      // First get the category ID by slug
+      const { data: categoryData } = await supabase
+        .from('categories')
+        .select('id')
+        .eq('slug', filters.category)
+        .single();
+      
+      if (categoryData) {
+        query = query.eq('category_id', categoryData.id);
+      }
     }
 
     if (filters.availability && filters.availability !== 'all') {

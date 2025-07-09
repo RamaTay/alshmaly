@@ -6,7 +6,7 @@ import { Loader2 } from 'lucide-react';
 const ProductsSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const { products, categories, loading, error } = useProducts({
-    category: activeCategory,
+    category: activeCategory === 'all' ? undefined : activeCategory,
     sortBy: 'name'
   });
 

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import WhatsAppButton from './components/Layout/WhatsAppButton';
+import ScrollToTop from './components/Layout/ScrollToTop';
 import AdminLayout from './components/admin/AdminLayout';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
@@ -23,6 +24,7 @@ import ContactsPage from './pages/admin/ContactsPage';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white overflow-x-hidden">
         <Routes>
           {/* Admin Routes */}

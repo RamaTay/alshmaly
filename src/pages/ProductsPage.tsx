@@ -13,7 +13,7 @@ const ProductsPage = () => {
 
   // Fetch products with current filters
   const { products, categories, loading, error } = useProducts({
-    category: selectedCategory,
+    category: selectedCategory === 'all' ? undefined : selectedCategory,
     availability: selectedAvailability,
     search: searchTerm,
     sortBy: sortBy
