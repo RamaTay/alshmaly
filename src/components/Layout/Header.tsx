@@ -10,20 +10,14 @@ const Header = () => {
 
   return (
     <header className="bg-white/70 backdrop-blur-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between relative">
-        
-        {/* Logo on the left */}
-        <Link 
-          to="/" 
-          className="flex flex-col items-start z-40"
+      <div className="container mx-auto px-4 py-4 relative flex items-center justify-between">
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden p-2 z-50"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <img 
-            src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
-            alt="Al-Shamali Logo" 
-            className="h-32 w-32 md:h-40 md:w-40 object-contain drop-shadow-xl"
-          />
-          <h1 className="text-2xl md:text-3xl font-bold text-[#054239] mt-2">Al-Shamaly</h1>
-        </Link>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -73,13 +67,18 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden p-2 z-50"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        {/* Centered Big Logo */}
+        <Link 
+          to="/" 
+          className="absolute left-1/2 -translate-x-1/2 top-0 md:top-4 flex flex-col items-center z-40"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <img 
+            src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
+            alt="Al-Shamali Logo" 
+            className="h-32 w-32 md:h-40 md:w-40 object-contain drop-shadow-xl"
+          />
+          <h1 className="text-2xl md:text-3xl font-bold text-[#054239] mt-2">Al-Shamaly</h1>
+        </Link>
       </div>
 
       {/* Mobile Menu */}
