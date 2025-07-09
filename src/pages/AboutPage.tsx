@@ -207,7 +207,7 @@ const AboutPage = () => {
             </div>
           </div>
 
- 
+  </div>
       </section>
     </div>
   );
