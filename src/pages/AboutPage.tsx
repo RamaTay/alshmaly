@@ -70,7 +70,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-[#edebe0] pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-[#054239] text-white">
         <div className="container mx-auto px-4">
@@ -179,7 +179,7 @@ const AboutPage = () => {
           </div>
 
           {/* Interactive Map Placeholder */}
-          <div className="bg-[#edebe0] rounded-2xl p-8 shadow-lg mb-12">
+          <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
             <div className="relative bg-gray-100 rounded-xl h-96 flex items-center justify-center mb-8">
               <div className="text-center">
                 <Globe size={64} className="text-[#b9a779] mx-auto mb-4" />
