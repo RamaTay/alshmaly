@@ -82,10 +82,10 @@ const ProductsSection = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-[#054239] mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-white mb-4">{product.description}</p>
                   <Link
                     to={`/product/${product.id}`}
-                    className="w-full bg-[#b9a779] hover:bg-[#054239] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
+                    className="w-full bg-[#054239] hover:bg-[#edebe0] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
                   >
                     View Details
                   </Link>
