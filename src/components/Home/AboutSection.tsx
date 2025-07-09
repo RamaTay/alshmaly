@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const AboutSection = () => {
   const [clients, setClients] = useState(0);
   const [countries, setCountries] = useState(0);
   const [years, setYears] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const animateCounters = () => {
@@ -33,11 +35,29 @@ const AboutSection = () => {
       }, stepDuration);
     };
 
-    animateCounters();
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          animateCounters();
+          setHasAnimated(true); // نضمن عدم التكرار
+        }
+      },
+      { threshold: 0.5 } // يبدأ العد عند ظهور نصف السكشن
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   return (
-    <section id="about" className="py-20 bg-[#edebe0] ">
+    <section id="about" ref={sectionRef} className="py-20 bg-[#edebe0]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
