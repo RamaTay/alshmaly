@@ -1,5 +1,5 @@
 import React from 'react';
-import { Package, Truck, FileText, Users, ArrowRight } from 'lucide-react';
+import { Package, Truck, FileText, Users } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -26,7 +26,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-[#edebe0] ">
+    <section id="services" className="py-20 bg-[#edebe0]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#054239] mb-4">
@@ -36,28 +36,21 @@ const ServicesSection = () => {
             From packaging to delivery, we provide comprehensive solutions for your agricultural product needs
           </p>
         </div>
- 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">  
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="group relative">
-              <div className="bg-[#054239] rounded-2xl p-8 text-center hover:bg-gray-50 transition-all duration-500 group-hover:shadow-xl">
-                <div className="w-16 h-16 bg-[#b9a779] text-[#054239] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-  [#edebe0] group-hover:text-[#054239] transition-all duration-300">
+            <div key={index} className="bg-[#054239] rounded-2xl p-8 text-center hover:bg-gray-50 transition-all duration-500 group shadow-md h-full flex flex-col justify-between">
+              <div>
+                <div className="w-16 h-16 bg-[#b9a779] text-[#054239] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg- [#edebe0] group-hover:text-[#054239] transition-all duration-300">
                   <service.icon size={32} />
                 </div>
-                <h3 className="text-xl font-semibold text-[#edebe0] mb-4 group-hover:text-[#054239] transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-[#edebe0] mb-4 group-hover:text-[#054239] transition-colors duration-300 min-h-[64px]">
                   {service.title}
                 </h3>
-                <p className="text-gray-200 group-hover:text-gray-600 transition-colors duration-300">
-                  {service.description}
-                </p>
               </div>
-              
-              {/* Arrow for flow */}
-              {index < services.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                  <ArrowRight className="text-[#b9a779]" size={24} />
-                </div>
-              )}
+              <p className="text-gray-200 group-hover:text-gray-600 transition-colors duration-300 min-h-[96px]">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
