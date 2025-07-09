@@ -40,7 +40,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> 
           {services.map((service, index) => (
             <div key={index} className="group relative">
-              <div className="bg-[#054239] rounded-2xl p-8 text-center hover:bg-gray-50 transition-all duration-500 group-hover:shadow-xl">
+              <div className="bg-[#054239] rounded-2xl p-8 text-center hover:bggray-50 transition-all duration-500 group-hover:shadow-xl">
                 <div className="w-16 h-16 bg-[#b9a779] text-[#054239] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#edebe0] group-hover:text-[#054239] transition-all duration-300">
                   <service.icon size={32} />
                 </div>
