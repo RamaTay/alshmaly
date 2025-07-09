@@ -103,7 +103,7 @@ const AboutSection = () => {
                 <p className="text-[#edebe0] font-medium">Satisfied Clients</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#054239] mb-2">
+                <div className="text-3xl font-bold text-[#b9a779] mb-2">
                   {countries}+
                 </div>
                 <p className="text-[#edebe0] font-medium">Exporting Countries</p>
