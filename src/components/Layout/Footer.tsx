@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
                 alt="Al-Shamali Logo" 
-                className="h-12 w-12 object-contain brightness-0 invert"
+                className="h-12 w-12 object-contain "
               />
               <div>
                 <h3 className="text-xl font-bold">Al-Shamali</h3>
