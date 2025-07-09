@@ -26,7 +26,7 @@ const ProductsSection = () => {
 
 
   return (
-    <section id="products" className="py-20 bg-[#b9a779] overflow-hidden w-full">
+    <section id="products" className="py-20 bg-[#edebe0] overflow-hidden w-full">
       <div className="container mx-auto px-4"> 
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#054239] mb-4">
@@ -71,9 +71,9 @@ const ProductsSection = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map(product => (
-              <div key={product.id} className="bg-[#edebe0] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full">
+              <div key={product.id} className="bg-[#b9a779] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full">
                 <div className="relative overflow-hidden">
-                  <img  
+                  <img   
                     src={product.images?.[0]?.image_url || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300'} 
                     alt={product.name}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -85,7 +85,7 @@ const ProductsSection = () => {
                   <p className="text-white mb-4">{product.description}</p>
                   <Link
                     to={`/product/${product.id}`}
-                    className="w-full bg-[#054239] hover:bg-[#edebe0] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
+                    className="w-full bg-[#b9a779] hover:bg-[#054239] text-white py-3 rounded-full font-medium transition-all duration-300 text-center block"
                   >
                     View Details
                   </Link>
