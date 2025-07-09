@@ -9,7 +9,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
  
   return (
-<header className="bg-[#edebe0] backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
+<header className="bg-[#054239] backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-sm">
 
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
@@ -21,7 +21,7 @@ const Header = () => {
               className="h-16 w-15 object-contain"
             />
             <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-[#054239]">Al-Shamaly</h1>
+              <h1 className="text-xl font-bold text-[#edebe0]">Al-Shamaly</h1>
             </div>
           </Link>
 
@@ -30,7 +30,7 @@ const Header = () => {
             <Link 
               to="/" 
               className={`transition-colors duration-300 font-medium ${
-                isActive('/') ? 'text-[#b9a779]' : 'text-[#054239] hover:text-[#b9a779]'
+                isActive('/') ? 'text-[#054239]' : 'text-[#edebe0] hover:text-[#054239]'
               }`}
             >
               Home
