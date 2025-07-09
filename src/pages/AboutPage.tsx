@@ -5,7 +5,7 @@ const AboutPage = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
  
   const timeline = [
-    {
+    { 
       year: '1999',
       title: 'Company Foundation',
       description: 'Al-Shamali was established in Idlib, Syria, with a vision to export premium Syrian agricultural products.'
@@ -149,8 +149,8 @@ const AboutPage = () => {
                   <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
                     <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center mb-4">
-                        <Calendar size={20} className="text-[#054239] mr-2" />
-                        <span className="text-[#054239] font-bold text-lg">{item.year}</span>
+                        <Calendar size={20} className="text-[#b9a779] mr-2" />
+                        <span className="text-[#b9a779] font-bold text-lg">{item.year}</span>
                       </div>
                       <h3 className="text-xl font-semibold text-[#054239] mb-3">{item.title}</h3>
                       <p className="text-gray-600">{item.description}</p>
