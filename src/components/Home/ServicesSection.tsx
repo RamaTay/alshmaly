@@ -29,7 +29,7 @@ const ServicesSection = () => {
     <section id="services" className="py-20 bg-[#054239]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#b9a779]] mb-4">
+          <h2 className="text-4xl font-bold text-[#b9a779] mb-4">
             Our Services
           </h2>
           <p className="text-[#edebe0] text-lg max-w-2xl mx-auto">
