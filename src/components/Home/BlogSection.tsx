@@ -86,7 +86,7 @@ const BlogSection = () => {
         <div className="text-center">
           <Link 
             to="/blog"
-            className="bg-[#b9a779] hover:bg-[#054239] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg"
+            className="bg-[#b9a779] hover:bg-[#054239] text-white  hover:bg-white hover:text-[#054239] px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg"
           >
             Browse All Articles
           </Link>
