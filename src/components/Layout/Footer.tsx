@@ -10,11 +10,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3"> 
-              <img 
-                src="https://i.postimg.cc/0Q8pxwTM/logo.png" 
-                alt="Al-Shamali Logo" 
-                className="h-12 w-12 object-contain "
-              />
+               <img 
+              src="https://i.postimg.cc/sgdxhP1p/logo.png" 
+              alt="Al-Shamaly Logo" 
+              className="h-16 w-15 object-contain"
+            />
               <div>
                 <h3 className="text-xl font-bold">Al-Shamali</h3>
                 <p className="text-[#b9a779] text-sm">Quality Speaks</p>
