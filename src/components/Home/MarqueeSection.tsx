@@ -11,7 +11,7 @@ const MarqueeSection = () => {
   ];
  
   return ( 
-    <section className="py-2 bg-[#054239] border-b-2 border-b-[#edebe0] overflow-x-hidden w-full">
+    <section className="py-2 bg-[#F7F7F7]  border-b-2 border-b-[#edebe0] overflow-x-hidden w-full">
       <div className="w-full">
         <div className="flex animate-marquee whitespace-nowrap w-max">
           {[...features, ...features, ...features].map((feature, index) => (
