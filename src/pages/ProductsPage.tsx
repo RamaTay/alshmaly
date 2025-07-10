@@ -155,7 +155,7 @@ const ProductsPage = () => {
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-[#b9a779] text-white' : 'bg-white text-gray-600'}`}
+                  className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-[#b9a779] text-white' : 'bg-[#f7f7f7] text-gray-600'}`}
                 >
                   <List size={20} />
                 </button>
