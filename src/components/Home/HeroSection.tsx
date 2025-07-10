@@ -23,7 +23,7 @@ const HeroSection = () => {
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-Quicksand text-white mb-6 leading-tight">
               Al-Shamali –{' '}
               <span className="text-[#b9a779]">Quality Speaks</span>
             </h1>
