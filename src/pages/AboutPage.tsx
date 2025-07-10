@@ -76,7 +76,7 @@ return (
       {/* الخلفية (صورة + طبقة داكنة) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
-          src="https://i.postimg.cc/QxrnWQFg/snapedit-1752138153179.png" 
+          src="https://i.postimg.cc/R0HvZ16r/c33961ad-7f66-43ea-9455-551f99cb24ae.jpg" 
           alt="Al-Shamali Team"
           className="w-full h-full object-cover"
         />
