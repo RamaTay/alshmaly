@@ -100,7 +100,7 @@ const AboutSection = () => {
                 <div className="text-3xl font-bold text-[#b9a779] mb-2">
                   {clients.toLocaleString()}+
                 </div>
-                <p className="text-[#edebe0] font-medium">Satisfied Clients</p>
+                <p className="text-[#F7F7F7]  font-medium">Satisfied Clients</p>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#b9a779] mb-2">
