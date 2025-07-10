@@ -69,31 +69,33 @@ const AboutPage = () => {
     }
   ];
 
-  return (
-    <div className="min-h-screen bg-[#F7F7F7]  pt-20">
-      {/* Hero Section */}
-<section className="relative py-20 text-white">
-  {/* الصورة الخلفية مع تدرج داكن لجعل النص واضح */}
-  <div className="absolute inset-0 z-0">
-    <img 
-      src="https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" 
-      alt="Al-Shamali Team"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0 bg-black/50"></div> {/* طبقة داكنة لتحسين قراءة النص */}
-  </div>
-  
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">About Al-Shamali</h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
-              For over 25 years, we have been the bridge between Syrian agricultural heritage and global markets, 
-              bringing authentic, premium-quality products to tables worldwide.
-            </p>
-          </div>
+return (
+  <div className="min-h-screen bg-[#F7F7F7] pt-20">
+    {/* Hero Section */}
+    <section className="relative py-32 text-white">
+      {/* الخلفية (صورة + طبقة داكنة) */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src="https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" 
+          alt="Al-Shamali Team"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+      
+      {/* المحتوى */}
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">About Al-Shamali</h1>
+          <p className="text-xl text-gray-100 leading-relaxed drop-shadow-md">
+            For over 25 years, we have been the bridge between Syrian agricultural heritage and global markets, 
+            bringing authentic, premium-quality products to tables worldwide.
+          </p>
         </div>
-      </section>
-
+      </div>
+    </section>
+  </div>
+)
       {/* Vision and Values */}
       <section className="py-20">
         <div className="container mx-auto px-4">
