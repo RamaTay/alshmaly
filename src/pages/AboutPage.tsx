@@ -76,7 +76,7 @@ return (
       {/* الخلفية (صورة + طبقة داكنة) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
-          src="https://i.postimg.cc/Dw3gNnrq/lined-spices-different-colored-hot-inside-silver-spoons-top-view-light-floor-1.jpg" 
+          src="https://i.postimg.cc/sXk29V8L/39910d87-074b-4a88-8dfb-d211cec7f247.jpg" 
           alt="Al-Shamali Team"
           className="w-full h-full object-cover"
         />
