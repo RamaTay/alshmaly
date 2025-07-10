@@ -71,7 +71,7 @@ const ProductsSection = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map(product => (
-              <div key={product.id} className="bg-[#f0eee5] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full">
+              <div key={product.id} className="bg-[#f7f7f7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full">
                 <div className="relative overflow-hidden">
                   <img   
                     src={product.images?.[0]?.image_url || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300'} 
