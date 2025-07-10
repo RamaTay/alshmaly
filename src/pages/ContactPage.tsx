@@ -2,6 +2,29 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { ContactAPI } from '../lib/api/contact';
 
+const faqData = [
+  {
+    question: "What is your minimum order quantity?",
+    answer: "Our minimum order quantity varies by product. For most items, it's 1 ton, but we can accommodate smaller orders for sample testing."
+  },
+  {
+    question: "Do you provide certificates of origin and quality?",
+    answer: "Yes, we provide all necessary documentation including certificates of origin, quality certificates, and phytosanitary certificates for international shipping."
+  },
+  {
+    question: "What are your payment terms?",
+    answer: "We accept various payment methods including T/T, L/C, and other internationally recognized payment terms. Specific terms can be discussed based on order size and relationship."
+  },
+  {
+    question: "How long does shipping take?",
+    answer: "Shipping times vary by destination. Typically, it takes 2-4 weeks for sea freight and 3-7 days for air freight to most international destinations."
+  },
+  {
+    question: "Do you offer private labeling services?",
+    answer: "Yes, we offer private labeling services with your brand. We can customize packaging design and labeling according to your specifications."
+  }
+];
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -58,30 +81,6 @@ const ContactPage = () => {
       : [...prevOpen, index]
   );
 };
-
-
-  const faqData = [
-    {
-      question: "What is your minimum order quantity?",
-      answer: "Our minimum order quantity varies by product. For most items, it's 1 ton, but we can accommodate smaller orders for sample testing."
-    },
-    {
-      question: "Do you provide certificates of origin and quality?",
-      answer: "Yes, we provide all necessary documentation including certificates of origin, quality certificates, and phytosanitary certificates for international shipping."
-    },
-    {
-      question: "What are your payment terms?",
-      answer: "We accept various payment methods including T/T, L/C, and other internationally recognized payment terms. Specific terms can be discussed based on order size and relationship."
-    },
-    {
-      question: "How long does shipping take?",
-      answer: "Shipping times vary by destination. Typically, it takes 2-4 weeks for sea freight and 3-7 days for air freight to most international destinations."
-    },
-    {
-      question: "Do you offer private labeling services?",
-      answer: "Yes, we offer private labeling services with your brand. We can customize packaging design and labeling according to your specifications."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-[#edebe0] pt-20">
