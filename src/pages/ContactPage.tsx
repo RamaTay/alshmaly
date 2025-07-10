@@ -12,7 +12,8 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [openFAQ, setOpenFAQ] = useState(faqData.map((_, index) => index));
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -49,9 +50,14 @@ const ContactPage = () => {
     }
   };
 
-  const toggleFAQ = (index: number) => {
-    setOpenFAQ(openFAQ === index ? null : index);
-  };
+  const toggleFAQ = (index) => {
+  setOpenFAQ((prevOpen) =>
+    prevOpen.includes(index)
+      ? prevOpen.filter((i) => i !== index)
+      : [...prevOpen, index]
+  );
+};
+
 
   const faqData = [
     {
