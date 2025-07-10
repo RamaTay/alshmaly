@@ -53,7 +53,7 @@ const ProductDetailsPage = () => {
 
   if (error || !product) {
     return (
-      <div className="min-h-screen bg-[#edebe0] pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#F7F7F7]  pt-20 flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-600 text-lg mb-4">
             {error || 'Product not found'}
@@ -70,7 +70,7 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#edebe0] pt-20">
+    <div className="min-h-screen bg-[#F7F7F7]  pt-20">
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <Link 
