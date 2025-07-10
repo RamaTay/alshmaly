@@ -65,7 +65,7 @@ const ProductDetailsPage = () => {
             ← Back to Products
           </Link>
         </div>
-      </div>
+      </div> 
     );
   }
 
