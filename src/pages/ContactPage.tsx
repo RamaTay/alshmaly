@@ -100,10 +100,12 @@ const ContactPage = () => {
     {/* Contact Section */}
     <section className="py-20">
       <div className="container mx-auto px-4">
+        {/* Row: Card + Form */}
         <div className="flex flex-col lg:flex-row gap-12 items-stretch">
           {/* Contact Info Card */}
           <div className="w-full lg:w-1/3">
             <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg h-full">
+              {/* نفس محتوى الكارد كما في السابق */}
               <h2 className="text-2xl font-bold text-[#054239] mb-8">Get in Touch</h2>
               <div className="space-y-6">
                 {/* Address */}
@@ -116,7 +118,6 @@ const ContactPage = () => {
                     <p className="text-gray-600">Industrial Zone<br />Idlib, Syria</p>
                   </div>
                 </div>
-
                 {/* Phone */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center">
@@ -128,7 +129,6 @@ const ContactPage = () => {
                     <p className="text-gray-600">+963 XXX XXX XXX</p>
                   </div>
                 </div>
-
                 {/* Email */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center">
@@ -140,7 +140,6 @@ const ContactPage = () => {
                     <p className="text-gray-600">sales@al-shamali.com</p>
                   </div>
                 </div>
-
                 {/* Hours */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center">
@@ -156,7 +155,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               </div>
-
               {/* Buttons */}
               <div className="mt-8 space-y-3">
                 <button className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-full font-medium transition-all duration-300 flex items-center justify-center">
@@ -171,12 +169,11 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* Right Side: Form + Map */}
-          <div className="w-full lg:w-2/3 flex flex-col gap-8">
-            {/* Contact Form */}
-            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg flex-1">
+          {/* Contact Form */}
+          <div className="w-full lg:w-2/3">
+            <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg h-full flex flex-col">
               <h2 className="text-2xl font-bold text-[#054239] mb-8">Send us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 flex-grow flex flex-col">
                 {submitMessage && (
                   <div className={`p-4 rounded-lg ${
                     submitMessage.includes('Thank you') 
@@ -187,7 +184,7 @@ const ContactPage = () => {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                     <input type="text" name="name" value={formData.name} onChange={handleInputChange} required
@@ -234,33 +231,34 @@ const ContactPage = () => {
                 </button>
               </form>
             </div>
+          </div>
+        </div>
 
-            {/* Map */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg flex-1">
-              <h2 className="text-2xl font-bold text-[#054239] mb-6">Our Location</h2>
-              <div className="relative bg-gray-100 rounded-xl h-96 overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.42107968468141!3d37.77492927975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sIdlib%2C%20Syria!5e0!3m2!1sen!2sus!4v1635959542123!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-xl"
-                ></iframe>
-              </div>
-              <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-                <p className="text-gray-600 text-sm">
-                  <strong>Note:</strong> For international clients, we provide comprehensive shipping and logistics support.
-                  Our team will coordinate with you to ensure smooth delivery to your location.
-                </p>
-              </div>
-            </div>
+        {/* Map below full width */}
+        <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg">
+          <h2 className="text-2xl font-bold text-[#054239] mb-6">Our Location</h2>
+          <div className="relative bg-gray-100 rounded-xl h-96 overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.42107968468141!3d37.77492927975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sIdlib%2C%20Syria!5e0!3m2!1sen!2sus!4v1635959542123!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-xl"
+            ></iframe>
+          </div>
+          <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+            <p className="text-gray-600 text-sm">
+              <strong>Note:</strong> For international clients, we provide comprehensive shipping and logistics support.
+              Our team will coordinate with you to ensure smooth delivery to your location.
+            </p>
           </div>
         </div>
       </div>
     </section>
+
 
 
       {/* FAQ Section */}
