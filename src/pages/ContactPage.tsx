@@ -349,9 +349,12 @@ const ContactPage = () => {
                     )}
                   </div>
                 </button>
-                <div className="px-6 pb-6">
-  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-</div>
+                {openFAQ.includes(index) && (
+  <div className="px-6 pb-6">
+    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+  </div>
+)}
+
 
               </div>
             ))}
