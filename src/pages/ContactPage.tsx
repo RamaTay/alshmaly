@@ -329,7 +329,7 @@ const ContactPage = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqData.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl overflow-hidden">
+              <div key={index} className="bg-[#f7f7f7] rounded-xl overflow-hidden">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
