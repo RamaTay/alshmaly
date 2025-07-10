@@ -91,7 +91,7 @@ const ProductsPage = () => {
                       {category.name}
                     </button>
                   ))}
-                </div>
+                </div> 
               </div>
 
               {/* Weight Filter */}
@@ -101,7 +101,7 @@ const ProductsPage = () => {
                   value={selectedWeight}
                   onChange={(e) => setSelectedWeight(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#b9a779] focus:border-transparent"
-                ></select>
+                >
                   <option value="all">All Weights</option>
                   {weights.map(weight => (
                     <option key={weight} value={weight}>{weight}</option>
