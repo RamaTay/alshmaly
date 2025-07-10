@@ -152,7 +152,7 @@ const BlogPostPage = () => {
           )}
 
           {/* Related Articles */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg">
             <h3 className="text-2xl font-semibold text-[#054239] mb-6">Related Articles</h3>
             {relatedPosts.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
