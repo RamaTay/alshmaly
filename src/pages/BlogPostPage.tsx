@@ -113,7 +113,7 @@ const BlogPostPage = () => {
 
           {/* Image Gallery */}
           {post.images && post.images.length > 1 && (
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
+            <div className="bg-[#f7f7f7]  rounded-2xl p-8 shadow-lg mb-8">
               <h3 className="text-2xl font-semibold text-[#054239] mb-6">Photo Gallery</h3>
               
               {/* Main Gallery Image */}
