@@ -179,7 +179,7 @@ const ProductDetailsPage = () => {
 
             {/* Product Features */}
             {product.features && product.features.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="bg-[#f7f7f7] rounded-2xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold text-[#054239] mb-4 flex items-center">
                 <Award size={24} className="mr-2 text-[#b9a779]" />
                 Additional Information
