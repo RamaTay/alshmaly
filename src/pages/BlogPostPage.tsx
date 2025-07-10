@@ -101,7 +101,7 @@ const BlogPostPage = () => {
           </div>
 
           {/* Article Content */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
+          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-8">
             <div 
               className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: post.content }}
