@@ -318,41 +318,26 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#054239] mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Quick answers to common questions about our products and services
-            </p>
-          </div>
+     <section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-[#054239] mb-4">Frequently Asked Questions</h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        Quick answers to common questions about our products and services
+      </p>
+    </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
-            {faqData.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl overflow-hidden">
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
-                >
-                  <h3 className="text-lg font-semibold text-[#054239] pr-4">{faq.question}</h3>
-                  <div className="flex-shrink-0">
-                    {openFAQ === index ? (
-                      <ChevronUp size={20} className="text-[#b9a779]" />
-                    ) : (
-                      <ChevronDown size={20} className="text-[#b9a779]" />
-                    )}
-                  </div>
-                </button>
-                {openFAQ === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+    <div className="max-w-4xl mx-auto space-y-6">
+      {faqData.map((faq, index) => (
+        <div key={index} className="bg-gray-50 rounded-xl overflow-hidden p-6">
+          <h3 className="text-lg font-semibold text-[#054239] mb-2">{faq.question}</h3>
+          <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
