@@ -10,7 +10,7 @@ const BlogPostPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#edebe0] pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#F7F7F7]  pt-20 flex items-center justify-center">
         <Loader2 className="animate-spin text-[#b9a779]" size={48} />
       </div>
     );
@@ -18,7 +18,7 @@ const BlogPostPage = () => {
 
   if (error || !post) {
     return (
-      <div className="min-h-screen bg-[#edebe0] pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#F7F7F7]  pt-20 flex items-center justify-center">
         <div className="text-center">
           <p className="text-red-600 text-lg mb-4">
             {error || 'Blog post not found'}
@@ -35,7 +35,7 @@ const BlogPostPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#edebe0] pt-20">
+    <div className="min-h-screen bg-[#F7F7F7]   pt-20">
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <Link 
