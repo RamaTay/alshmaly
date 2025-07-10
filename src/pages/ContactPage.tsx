@@ -92,7 +92,7 @@ const ContactPage = () => {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4 border-b-2   border-b-[#b9a779] ">
+        <div className="container mx-auto px-4  ">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
