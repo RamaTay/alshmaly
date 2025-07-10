@@ -79,7 +79,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-[#f7f7f7]  pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-[#054239] text-white">
+      <section className="py-20 bg-[#054239] text-white ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
@@ -92,7 +92,7 @@ const ContactPage = () => {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 border-b-2   border-b-[#b9a779] ">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
