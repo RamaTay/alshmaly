@@ -53,7 +53,7 @@ const ProductsPage = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Filters */}
           <div className="lg:w-1/4 w-full">
-            <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-24">
+            <div className="bg-[#f7f7f7] rounded-2xl p-6 shadow-lg sticky top-24">
               <h3 className="text-xl font-semibold text-[#054239] mb-6 flex items-center">
                 <Filter size={20} className="mr-2" />
                 Filters
