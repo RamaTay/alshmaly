@@ -179,7 +179,7 @@ const ProductsPage = () => {
                 {filteredProducts.map(product => {
                   const defaultPackage = product.packages?.find(pkg => pkg.is_default) || product.packages?.[0];
                   return (
-                <div key={product.id} className={`bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full ${
+                <div key={product.id} className={`bg-[#f7f7f7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group w-full ${
                   viewMode === 'list' ? 'flex items-center p-4' : ''
                 }`}>
                   <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-24 h-24 rounded-lg flex-shrink-0' : 'w-full h-48'}`}>
