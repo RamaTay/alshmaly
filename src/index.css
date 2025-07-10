@@ -8,10 +8,7 @@
     overflow-x: hidden;
     
   } 
-  select option:hover {
-  background-color: #054239;
-  color: white;
-}
+  
 
 select option:checked {
   background-color: #054239;
