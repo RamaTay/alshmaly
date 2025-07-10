@@ -193,7 +193,7 @@ const AboutPage = () => {
               {exportCountries.map((country, index) => (
                 <div 
                   key={index}
-                  className="bg-gray-50 rounded-xl p-6 hover:bg-[#b9a779]/10 transition-all duration-300 cursor-pointer"
+                  className="bg-[#F7F7F7]  rounded-xl p-6 hover:bg-[#b9a779]/10 transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedCountry(country)}
                 >
                   <div className="flex items-center mb-3">
