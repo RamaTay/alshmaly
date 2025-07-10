@@ -329,7 +329,7 @@ const ContactPage = () => {
 
     <div className="max-w-4xl mx-auto space-y-6">
       {faqData.map((faq, index) => (
-        <div key={index} className="bg-gray-50 rounded-xl overflow-hidden p-6">
+        <div key={index} className="bg-[#f7f7f7] rounded-xl overflow-hidden p-6">
           <h3 className="text-lg font-semibold text-[#054239] mb-2">{faq.question}</h3>
           <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
         </div>
