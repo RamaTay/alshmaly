@@ -127,7 +127,7 @@ const ProductDetailsPage = () => {
                     onClick={() => setSelectedPackage(pkg.weight)}
                     className={`p-4 rounded-xl border-2 transition-all duration-300 ${
                       selectedPackage === pkg.weight
-                        ? 'border-[#b9a779] bg-[#f7f7f7]'
+                        ? 'border-[#b9a779] bg-[#b9a779]/10'
                         : 'border-gray-200 hover:border-[#b9a779]/50'
                     }`}
                   >
