@@ -34,7 +34,7 @@ const MarqueeSection = () => {
           100% { transform: translateX(-100%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
           will-change: transform;
         }
       `}</style>
