@@ -147,7 +147,7 @@ const AboutPage = () => {
               {timeline.map((item, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                    <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                       <div className="flex items-center mb-4">
                         <Calendar size={20} className="text-[#b9a779] mr-2" />
                         <span className="text-[#b9a779] font-bold text-lg">{item.year}</span>
