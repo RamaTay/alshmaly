@@ -100,10 +100,10 @@ const AboutPage = () => {
                 service in everything we do. Our products carry the essence of Syrian soil and the dedication 
                 of generations of farmers.
               </p>
-            </div>
+            </div> 
             <div className="relative">
               <img 
-                src="https://i.postimg.cc/QxrnWQFg/snapedit-1752138153179.png" 
+                src="https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=800&h=600" 
                 alt="Al-Shamali Team"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
