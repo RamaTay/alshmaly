@@ -8,6 +8,10 @@
     overflow-x: hidden;
     
   } 
+  select option:checked {
+  background-color: #b9a779;
+  color: white;
+}
   
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
