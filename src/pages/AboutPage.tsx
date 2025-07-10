@@ -107,8 +107,7 @@ const AboutPage = () => {
                 alt="Al-Shamali Team"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />
-              <div className="absolute -bottom-6 -right-6  text-white p-6 rounded-2xl
-                 style={{ backgroundImage: "url('https://i.postimg.cc/QxrnWQFg/snapedit-1752138153179.png')"}}">
+              <div className="absolute -bottom-6 -right-6  text-white p-6 rounded-2xl">
                 
                 <p className="text-sm font-semibold">Established</p>
                 <p className="text-2xl font-bold">1999</p>
