@@ -48,7 +48,7 @@ const BlogSection = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {blogPosts.map(post => (
-            <article key={post.id} className="bg-[#d6d2c5] rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <article key={post.id} className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img 
                   src={post.featured_image || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300'} 
@@ -71,7 +71,7 @@ const BlogSection = () => {
                 <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
                 <Link 
                   to={`/blog/${post.id}`}
-                  className="flex items-center text-[#054239] hover:text-black font-medium transition-colors duration-300 group"
+                  className="flex items-center text-[#b9a779] hover:text-[#054239] font-medium transition-colors duration-300 group"
                 >
                   Read More
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
