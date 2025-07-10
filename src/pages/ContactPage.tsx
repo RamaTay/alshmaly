@@ -1,71 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { ContactAPI } from '../lib/api/contact';
 
 const ContactPage = () => {
-  // بيانات الفورم
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    subject: '', 
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  // refs للبطاقة والخريطة
-  const cardRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  // حالة قيمة top للبطاقة sticky
-  const [cardTop, setCardTop] = useState(96); // نبدأ ب 96px (top-24)
-
-  const stickyTopOffset = 96; // 24 * 4px
-
-  // تحديث قيمة top بناء على التمرير والمواضع
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!cardRef.current || !mapRef.current) return;
-
-      const cardRect = cardRef.current.getBoundingClientRect();
-      const mapRect = mapRef.current.getBoundingClientRect();
-
-      const cardHeight = cardRect.height;
-      const mapHeight = mapRect.height;
-
-      const scrollTop = window.scrollY || window.pageYOffset;
-
-      // نقطة التوقف العليا للبطاقة
-      const cardInitialTop = cardRef.current.offsetTop;
-
-      // النقطة التي يجب أن تتوقف عندها البطاقة (أسفل الخريطة)
-      const maxTop = mapRef.current.offsetTop + mapHeight - cardHeight - stickyTopOffset;
-
-      if (scrollTop + stickyTopOffset > maxTop) {
-        // إذا تعدى التمرير الحد الأقصى، نثبت البطاقة عند الحد الأقصى (أسفل الماب)
-        setCardTop(maxTop - scrollTop);
-      } else if (scrollTop > cardInitialTop - stickyTopOffset) {
-        // في منتصف التمرير: sticky ثابت
-        setCardTop(stickyTopOffset);
-      } else {
-        // فوق بداية البطاقة: البطاقة في مكانها الطبيعي
-        setCardTop(0);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll(); // نفذ أول مرة
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
-
-  // دوال تغيير البيانات وإرسال الفورم (مثل السابق)
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -73,23 +22,24 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
       setIsSubmitting(true);
       setSubmitMessage('');
-
+      
       await ContactAPI.submitContactMessage(formData);
-
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
         phone: '',
         subject: '',
         message: ''
-      });
-
+      }); 
+      
       setSubmitMessage('Thank you for your message! We will get back to you soon.');
     } catch (error) {
       console.error('Error submitting contact form:', error);
@@ -98,6 +48,33 @@ const ContactPage = () => {
       setIsSubmitting(false);
     }
   };
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqData = [
+    {
+      question: "What is your minimum order quantity?",
+      answer: "Our minimum order quantity varies by product. For most items, it's 1 ton, but we can accommodate smaller orders for sample testing."
+    },
+    {
+      question: "Do you provide certificates of origin and quality?",
+      answer: "Yes, we provide all necessary documentation including certificates of origin, quality certificates, and phytosanitary certificates for international shipping."
+    },
+    {
+      question: "What are your payment terms?",
+      answer: "We accept various payment methods including T/T, L/C, and other internationally recognized payment terms. Specific terms can be discussed based on order size and relationship."
+    },
+    {
+      question: "How long does shipping take?",
+      answer: "Shipping times vary by destination. Typically, it takes 2-4 weeks for sea freight and 3-7 days for air freight to most international destinations."
+    },
+    {
+      question: "Do you offer private labeling services?",
+      answer: "Yes, we offer private labeling services with your brand. We can customize packaging design and labeling according to your specifications."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -117,17 +94,12 @@ const ContactPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Information Card */}
+            {/* Contact Information */}
             <div className="lg:col-span-1">
-              <div
-                ref={cardRef}
-                className="bg-white rounded-2xl p-8 shadow-lg"
-                style={{ position: 'sticky', top: cardTop }}
-              >
+              <div className="bg-white rounded-2xl p-8 shadow-lg h-fit sticky top-24">
                 <h2 className="text-2xl font-bold text-[#054239] mb-8">Get in Touch</h2>
                 
                 <div className="space-y-6">
-                  {/* Address */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center flex-shrink-0">
                       <MapPin size={20} className="text-white" />
@@ -141,7 +113,6 @@ const ContactPage = () => {
                     </div>
                   </div>
 
-                  {/* Phone */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center flex-shrink-0">
                       <Phone size={20} className="text-white" />
@@ -153,7 +124,6 @@ const ContactPage = () => {
                     </div>
                   </div>
 
-                  {/* Email */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center flex-shrink-0">
                       <Mail size={20} className="text-white" />
@@ -165,7 +135,6 @@ const ContactPage = () => {
                     </div>
                   </div>
 
-                  {/* Business Hours */}
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#b9a779] rounded-full flex items-center justify-center flex-shrink-0">
                       <Clock size={20} className="text-white" />
@@ -299,9 +268,6 @@ const ContactPage = () => {
                     ></textarea>
                   </div>
 
-
-                  
-                  {/* Submit button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -314,24 +280,31 @@ const ContactPage = () => {
               </div>
 
               {/* Map */}
-              <div
-                ref={mapRef}
-                className="bg-white rounded-2xl p-8 shadow-lg min-h-[400px]"
-              >
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-[#054239] mb-6">Our Location</h2>
                 <div className="relative bg-gray-100 rounded-xl h-96 overflow-hidden">
+                  {/* Map Placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <MapPin size={64} className="text-[#b9a779] mx-auto mb-4" />
+                      <p className="text-gray-600 text-lg font-medium">Interactive Map</p>
+                      <p className="text-gray-500">Al-Shamali Location in Idlib, Syria</p>
+                    </div>
+                  </div>
+                  
+                  {/* In a real implementation, you would integrate with Google Maps, Mapbox, or similar */}
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.42107968468141!3d37.77492927975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sIdlib%2C%20Syria!5e0!3m2!1sen!2sus!4v1635959542123!5m2!1sen!2sus"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                    allowFullScreen
+                    allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="rounded-xl"
                   ></iframe>
                 </div>
-
+                
                 <div className="mt-6 p-4 bg-gray-50 rounded-xl">
                   <p className="text-gray-600 text-sm">
                     <strong>Note:</strong> For international clients, we provide comprehensive shipping and logistics support. 
@@ -344,7 +317,27 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* FAQ Section (يمكنك إضافتها كما تريد) */}
+      {/* FAQ Section */}
+     <section className="py-20 bg-[#f7f7f7]">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-[#054239] mb-4">Frequently Asked Questions</h2>
+      <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        Quick answers to common questions about our products and services
+      </p>
+    </div>
+
+    <div className="max-w-4xl mx-auto space-y-6">
+      {faqData.map((faq, index) => (
+        <div key={index} className="bg-[#f7f7f7] rounded-xl overflow-hidden p-6">
+          <h3 className="text-lg font-semibold text-[#054239] mb-2">{faq.question}</h3>
+          <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
