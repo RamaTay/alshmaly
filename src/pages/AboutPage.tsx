@@ -143,7 +143,7 @@ return (
       </section>
 
       {/* Company Timeline */}
-      <section className="py-20 bg-[#F7F7F7]  border-b-2  border-t-2 border-b-[#b9a779] border-t-[#edebe0]">
+      <section className="py-20 bg-[#F7F7F7]  border-b-2  border-t-2 border-b-[#edebe0] border-t-[#edebe0]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#054239] mb-4">Our Journey</h2>
