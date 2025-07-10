@@ -117,7 +117,7 @@ const AboutPage = () => {
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div key={index} className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-16 h-16 bg-[#054239] rounded-full flex items-center justify-center mb-6">
                   <value.icon size={32} className="text-white" />
                 </div>
@@ -179,7 +179,7 @@ const AboutPage = () => {
           </div>
 
           {/* Interactive Map Placeholder */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg mb-12">
+          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
             <div className="relative bg-gray-100 rounded-xl h-96 flex items-center justify-center mb-8">
               <div className="text-center">
                 <Globe size={64} className="text-[#b9a779] mx-auto mb-4" />
