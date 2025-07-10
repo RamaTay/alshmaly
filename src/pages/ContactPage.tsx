@@ -77,7 +77,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-[#edebe0] pt-20">
       {/* Hero Section */}
       <section className="py-20 bg-[#054239] text-white">
         <div className="container mx-auto px-4">
