@@ -261,8 +261,6 @@ const ContactPage = () => {
         </div>
       </div>
     </section>
-  </div>
-);
 
 
       {/* FAQ Section */}
