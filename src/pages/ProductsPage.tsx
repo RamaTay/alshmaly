@@ -42,7 +42,7 @@ const ProductsPage = () => {
   }, [products, selectedWeight]);
 
   return (
-    <div className="min-h-screen bg-[#edebe0] pt-20 overflow-x-hidden w-full">
+    <div className="min-h-screen bg-[#F7F7F7]  pt-20 overflow-x-hidden w-full">
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
