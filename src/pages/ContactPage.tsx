@@ -343,11 +343,10 @@ const ContactPage = () => {
                     )}
                   </div>
                 </button>
-                {openFAQ === index && (
-                  <div className="px-6 pb-6"> 
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
+                <div className="px-6 pb-6">
+  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+</div>
+
               </div>
             ))}
           </div>
