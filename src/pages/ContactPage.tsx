@@ -96,7 +96,7 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl p-8 shadow-lg h-fit sticky top-24">
+              <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg h-fit sticky top-24">
                 <h2 className="text-2xl font-bold text-[#054239] mb-8">Get in Touch</h2>
                 
                 <div className="space-y-6">
@@ -167,7 +167,7 @@ const ContactPage = () => {
             {/* Contact Form and Map */}
             <div className="lg:col-span-2 space-y-8">
               {/* Contact Form */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg">
                 <h2 className="text-2xl font-bold text-[#054239] mb-8">Send us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
