@@ -38,26 +38,7 @@ const ProductsSection = () => {
         </div>
 
    
-        {/* Category Filter */}
-            {/*  <div className="flex flex-wrap justify-center gap-4 mb-12 overflow-x-auto no-scrollbar">
-          <div className="flex space-x-4 min-w-max px-4">
-            {displayCategories.map(category => (
-              <button
-                key={category.slug}
-                onClick={() => setActiveCategory(category.slug)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
-                  activeCategory === category.slug
-                    ? 'bg-[#b9a779] text-white shadow-lg'
-                    : 'bg-white text-[#054239] hover:bg-[#054239] hover:text-white'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
-        */}
-
+        
         {/* Products Grid */}
         <div className="w-full mb-12">
           {loading ? (
