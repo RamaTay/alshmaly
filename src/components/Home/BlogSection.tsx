@@ -44,11 +44,11 @@ const BlogSection = () => {
         ) : error ? (
           <div className="text-center py-12 mb-12">
             <p className="text-red-600 text-lg">Error loading blog posts: {error}</p>
-          </div>
+          </div> 
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {blogPosts.map(post => (
-            <article key={post.id} className="bg-[#f7f7f7] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 group">
+            <article key={post.id} className="bg-[#f7f7f7] rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img 
                   src={post.featured_image || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300'} 
