@@ -37,7 +37,7 @@ const BlogPage = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? 'bg-[#b9a779] text-white shadow-lg'
-                    : 'bg-[#f7f7f7 text-[#054239] hover:bg-[#054239] hover:text-white shadow-md'
+                    : 'bg-[#f7f7f7] text-[#054239] hover:bg-[#054239] hover:text-white shadow-md'
                 }`}
               >
                 {category}
