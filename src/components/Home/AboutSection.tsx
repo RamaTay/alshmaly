@@ -85,7 +85,7 @@ const AboutSection = () => {
 
           {/* Content */}
           <div>
-            <h2 className="text-4xl font-bold text-[#b9a779] mb-6">
+            <h2 className="text-4xl font-bold text-[#F7F7F7]  mb-6">
               We bring authenticity into your world
             </h2>
             <p className="text-[#edebe0] text-lg leading-relaxed mb-8">
