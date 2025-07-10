@@ -10,7 +10,7 @@ const BlogPostPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#edebe0] pt-20 flex items-center justify-center">
         <Loader2 className="animate-spin text-[#b9a779]" size={48} />
       </div>
     );
