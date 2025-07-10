@@ -15,6 +15,7 @@ const ContactPage = () => {
   const [openFAQ, setOpenFAQ] = useState(faqData.map((_, index) => index));
 
 
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -349,11 +350,11 @@ const ContactPage = () => {
                     )}
                   </div>
                 </button>
-                {openFAQ.includes(index) && (
-  <div className="px-6 pb-6">
-    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-  </div>
-)}
+               {openFAQ.includes(index) && (
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              )}
 
  
               </div>
