@@ -65,7 +65,7 @@ const BlogPage = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-[#b9a779] text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-[#f7f7f7] text-white px-3 py-1 rounded-full text-sm font-medium">
                       {post.category?.name || 'Blog'}
                     </span>
                   </div>
