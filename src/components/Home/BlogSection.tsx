@@ -57,9 +57,8 @@ const BlogSection = () => {
       src={post.featured_image || 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300'} 
       alt={post.title}
       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-    />  
-    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300">
-      </div>
+    />   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300">
+    
   </div>
    
 
@@ -68,7 +67,7 @@ const BlogSection = () => {
       <Calendar size={16} className="mr-2" />
       {new Date(post.published_at).toLocaleDateString('en-US', { 
         year: 'numeric', 
-        month: 'long', 
+        month: 'long',  
         day: 'numeric' 
       })}
     </div>
