@@ -143,7 +143,7 @@ const ProductDetailsPage = () => {
       <div className="mb-8">
   <Link
     to="/contact"
-    className="w-fit  block border-2flex-1 bg-[#b9a779] hover:bg-[#054239] text-white py-4 px-6 rounded-full font-semibold transition-all duration-300"
+    className="w-fit  block border-2 flex-1 bg-[#b9a779] hover:bg-[#054239] text-white py-4 px-6 rounded-full font-semibold transition-all duration-300"
   >
     Contact Supplier
   </Link>
