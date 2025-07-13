@@ -69,7 +69,6 @@ const BlogSection = () => {
         year: 'numeric', 
         month: 'long',  
         day: 'numeric' 
-      })}
     </div>
 
     <h3 className="text-xl font-semibold text-[#054239] mb-3 group-hover:text-[#b9a779] transition-colors duration-300 min-h-[3.5rem]">
