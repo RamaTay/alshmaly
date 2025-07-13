@@ -37,7 +37,7 @@ const AboutPage = () => {
     }
   ];
 
-  const exportCountries = [
+ 
     const exportCountries = [
   { name: 'China', exports: '2,000 tons/year', products: 'Spices, Dried Herbs' },
   { name: 'Sri Lanka', exports: '1,200 tons/year', products: 'Tea, Spices' },
