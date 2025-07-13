@@ -190,7 +190,7 @@ return (
         </div>
       </section>
 
-      {/* Export Countries Map *
+      {/* Export Countries Map */}
      <section className="py-20 bg-[#F7F7F7] ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -201,7 +201,7 @@ return (
           </div>
 
   
-          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
+          {/*  <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
             <div className="relative bg-gray-100 rounded-xl h-96 flex items-center justify-center mb-8">
               <div className="text-center">
                 <Globe size={64} className="text-[#b9a779] mx-auto mb-4" />
@@ -229,7 +229,9 @@ return (
             </div>
           </div>
 
-
+  </div>
+      </section>
+    </div>
   );
 };
 
