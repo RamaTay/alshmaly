@@ -113,31 +113,29 @@ const ProductDetailsPage = () => {
               <p className="text-gray-600 text-lg leading-relaxed">{product.description}</p>
             </div>
 
-          {/* Packaging Options */}
+{/* Packaging Options */}
 {product.packages && product.packages.length > 0 && (
-  <div className="mb-8 max-w-md mx-auto">
+  <div className="mb-8 max-w-full overflow-x-auto">
     <h3 className="text-xl font-semibold text-[#054239] mb-4">Packaging Options</h3>
-    <div className="flex flex-col space-y-3">
+    <div className="flex space-x-4">
       {product.packages.map((pkg) => (
         <button
           key={pkg.weight}
           onClick={() => setSelectedPackage(pkg.weight)}
-          className={`flex justify-between items-center p-4 rounded-xl border-2 transition-all duration-300 ${
+          className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all duration-300 min-w-[80px] ${
             selectedPackage === pkg.weight
               ? 'border-[#b9a779] bg-[#b9a779]/20'
               : 'bg-[#f7f7f7] border-gray-200 hover:border-[#b9a779]/50'
           }`}
         >
-          <div className="flex items-center space-x-3">
-            <Package size={24} className="text-[#b9a779]" />
-            <span className="font-semibold text-[#054239]">{pkg.weight}</span>
-          </div>
-          <div className="text-[#b9a779] font-bold">${pkg.price}</div>
+          <Package size={24} className="mb-1 text-[#b9a779]" />
+          <span className="font-semibold text-[#054239]">{pkg.weight}</span>
         </button>
       ))}
     </div>
   </div>
 )}
+
 
             {/* Action Buttons */}
     <div className="mb-8 flex justify-end">
