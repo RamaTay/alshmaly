@@ -113,31 +113,31 @@ const ProductDetailsPage = () => {
               <p className="text-gray-600 text-lg leading-relaxed">{product.description}</p>
             </div>
 
-            {/* Packaging Options */}
-            {product.packages && product.packages.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-[#054239] mb-4">Packaging Options</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {product.packages.map((pkg) => (
-                    <button
-                      key={pkg.weight}
-                      onClick={() => setSelectedPackage(pkg.weight)}
-                      className={`p-4 rounded-xl border-2 transition-all duration-300 ${
-                        selectedPackage === pkg.weight
-                          ? 'border-[#b9a779] bg-[#b9a779]/10'
-                          : 'bg-[#f7f7f7] border-gray-200 hover:border-[#b9a779]/50'
-                      }`}
-                    >
-                      <div className="text-center">
-                        <Package size={24} className="mx-auto mb-2 text-[#b9a779]" />
-                        <div className="font-semibold text-[#054239]">{pkg.weight}</div>
-                        <div className="text-[#b9a779] font-bold">${pkg.price}</div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+          {/* Packaging Options */}
+{product.packages && product.packages.length > 0 && (
+  <div className="mb-8 max-w-md mx-auto">
+    <h3 className="text-xl font-semibold text-[#054239] mb-4">Packaging Options</h3>
+    <div className="flex flex-col space-y-3">
+      {product.packages.map((pkg) => (
+        <button
+          key={pkg.weight}
+          onClick={() => setSelectedPackage(pkg.weight)}
+          className={`flex justify-between items-center p-4 rounded-xl border-2 transition-all duration-300 ${
+            selectedPackage === pkg.weight
+              ? 'border-[#b9a779] bg-[#b9a779]/20'
+              : 'bg-[#f7f7f7] border-gray-200 hover:border-[#b9a779]/50'
+          }`}
+        >
+          <div className="flex items-center space-x-3">
+            <Package size={24} className="text-[#b9a779]" />
+            <span className="font-semibold text-[#054239]">{pkg.weight}</span>
+          </div>
+          <div className="text-[#b9a779] font-bold">${pkg.price}</div>
+        </button>
+      ))}
+    </div>
+  </div>
+)}
 
             {/* Action Buttons */}
     <div className="mb-8 flex justify-end">
