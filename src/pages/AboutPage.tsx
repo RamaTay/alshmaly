@@ -221,7 +221,7 @@ return (
 </section>
 
   
-  );
-};
+  
+
 
 export default AboutPage;
