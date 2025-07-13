@@ -141,13 +141,7 @@ const ProductDetailsPage = () => {
 
             {/* Action Buttons */}
             <div className="flex space-x-4 mb-8">
-              <button
-                className="flex-1 bg-[#b9a779] hover:bg-[#054239] text-white py-4 px-6 rounded-full font-semibold transition-all duration-300"
-                onClick={handleQuoteRequest}
-                disabled={quoteLoading || !selectedPackage}
-              >
-                {quoteLoading ? 'Submitting...' : 'Request Quote'}
-              </button>
+           
 
          <Link
   to="/contact"
