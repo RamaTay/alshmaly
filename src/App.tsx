@@ -18,7 +18,6 @@ import ProductsAdminPage from './pages/admin/ProductsPage';
 import CategoriesPage from './pages/admin/CategoriesPage';
 import BlogPostsPage from './pages/admin/BlogPostsPage';
 import BlogCategoriesPage from './pages/admin/BlogCategoriesPage';
-import QuotesPage from './pages/admin/QuotesPage';
 import ContactsPage from './pages/admin/ContactsPage';
 import HomepageManagementPage from './pages/admin/HomepageManagementPage';
 
@@ -37,7 +36,6 @@ function App() {
             <Route path="categories" element={<CategoriesPage />} />
             <Route path="blog-posts" element={<BlogPostsPage />} />
             <Route path="blog-categories" element={<BlogCategoriesPage />} />
-            <Route path="quotes" element={<QuotesPage />} />
             <Route path="contacts" element={<ContactsPage />} />
           </Route>
           
