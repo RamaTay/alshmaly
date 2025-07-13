@@ -30,21 +30,7 @@ const MarqueeSection = () => {
           ))}
         </div>
         
-        {/* نسخة ثانية متطابقة للانسياب المستمر */}
-        <div className="flex animate-marquee2 absolute top-0 whitespace-nowrap">
-          {repeatedFeatures.map((feature, index) => (
-            <div 
-              key={`second-${index}`} 
-              className="inline-flex items-center mx-8 text-[#054239] flex-shrink-0"
-            > 
-              <div className="w-12 h-12 text-[#054239] rounded-full flex items-center justify-center">
-                <feature.icon size={24} />
-              </div>
-              <span className="ml-4 text-xl font-semibold">{feature.text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+       
       
       <style jsx global>{`
         @keyframes marquee {
