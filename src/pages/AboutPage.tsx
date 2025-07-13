@@ -191,7 +191,7 @@ return (
       </section>
 
       {/* Export Countries Map */}
-      <section className="py-20 bg-[#F7F7F7] ">
+      {/* <section className="py-20 bg-[#F7F7F7] ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#054239] mb-4">Global Reach</h2>
@@ -201,14 +201,14 @@ return (
           </div>
 
           {/* Interactive Map Placeholder */}
-          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
+      {/*  <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
             <div className="relative bg-gray-100 rounded-xl h-96 flex items-center justify-center mb-8">
               <div className="text-center">
                 <Globe size={64} className="text-[#b9a779] mx-auto mb-4" />
                 <p className="text-gray-600 text-lg">Interactive World Map</p>
                 <p className="text-gray-500">Click on countries to see export details</p>
               </div>
-            </div>
+            </div>*/}
 
             {/* Export Countries Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
