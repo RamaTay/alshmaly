@@ -116,7 +116,7 @@ const ProductDetailsPage = () => {
 {/* Packaging Options */}
 {product.packages && product.packages.length > 0 && (
   <div className="mb-8 max-w-full overflow-x-auto">
-    <h3 className="text-xl font-semibold text-[#054239] mb-4">Packaging Options</h3>
+    <h3 className="text-xl font-semibold text-[#054239] mb-4">Packaging </h3>
     <div className="flex space-x-4">
       {product.packages.map((pkg) => (
         <button
