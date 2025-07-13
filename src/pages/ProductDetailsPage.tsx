@@ -140,7 +140,7 @@ const ProductDetailsPage = () => {
             )}
 
             {/* Action Buttons */}
-            <div className="flex space-x-4 mb-8">
+          
            
 
          <Link
@@ -149,7 +149,7 @@ const ProductDetailsPage = () => {
   Contact Supplier
 </Link>
 
-            </div>
+          
 
             {/* Product Features */}
             {product.features && product.features.length > 0 && (
