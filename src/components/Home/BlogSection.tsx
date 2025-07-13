@@ -74,7 +74,7 @@ const BlogSection = () => {
                   className="flex items-center text-[#b9a779] hover:text-[#054239] font-medium transition-colors duration-300 group"
                 >
                   Read More
-                  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight size={16} className="ml-2 mt-auto group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </article>
