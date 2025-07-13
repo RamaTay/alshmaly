@@ -74,13 +74,7 @@ const DashboardPage = () => {
       color: 'bg-green-500',
       change: '+8%'
     },
-    {
-      title: 'Quote Requests',
-      value: stats.totalQuotes,
-      icon: MessageSquare,
-      color: 'bg-[#b9a779]',
-      change: '+23%'
-    },
+   
     {
       title: 'Contact Messages',
       value: stats.totalContacts,
