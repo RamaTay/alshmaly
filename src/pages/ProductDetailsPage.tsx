@@ -140,16 +140,15 @@ const ProductDetailsPage = () => {
             )}
 
             {/* Action Buttons */}
-          
-           
+      <div className="mb-8">
+  <Link
+    to="/contact"
+    className="w-fit mx-auto block border-2 border-[#b9a779] text-[#b9a779] hover:bg-[#b9a779] hover:text-white py-3 px-6 rounded-full font-semibold transition-all duration-300"
+  >
+    Contact Supplier
+  </Link>
+</div>
 
-         <Link
-  to="/contact"
- className="flex-1 border-2 border-[#b9a779] text-[#b9a779] hover:bg-[#b9a779] hover:text-white py-4 px-6 rounded-full font-semibold transition-all duration-300">
-  Contact Supplier
-</Link>
-
-          
 
             {/* Product Features */}
             {product.features && product.features.length > 0 && (
