@@ -38,13 +38,22 @@ const AboutPage = () => {
   ];
 
   const exportCountries = [
-    { name: 'Germany', exports: '2,500 tons/year', products: 'Freekeh, Lentils, Spices' },
-    { name: 'France', exports: '1,800 tons/year', products: 'Olive Oil, Herbs, Nuts' },
-    { name: 'United Kingdom', exports: '1,200 tons/year', products: 'Legumes, Dried Fruits' },
-    { name: 'Netherlands', exports: '2,100 tons/year', products: 'Spices, Traditional Preserves' },
-    { name: 'United States', exports: '3,200 tons/year', products: 'Premium Nuts, Freekeh' },
-    { name: 'Canada', exports: '1,500 tons/year', products: 'Herbs, Spices, Oils' }
-  ];
+    const exportCountries = [
+  { name: 'China', exports: '2,000 tons/year', products: 'Spices, Dried Herbs' },
+  { name: 'Sri Lanka', exports: '1,200 tons/year', products: 'Tea, Spices' },
+  { name: 'Libya', exports: '950 tons/year', products: 'Legumes, Oils' },
+  { name: 'Egypt', exports: '2,300 tons/year', products: 'Freekeh, Lentils, Herbs' },
+  { name: 'Palestine', exports: '1,000 tons/year', products: 'Olive Oil, Thyme, Dates' },
+  { name: 'Kuwait', exports: '1,100 tons/year', products: 'Spices, Grains' },
+  { name: 'Qatar', exports: '1,300 tons/year', products: 'Nuts, Dried Fruits' },
+  { name: 'Saudi Arabia', exports: '2,800 tons/year', products: 'Freekeh, Traditional Herbs' },
+  { name: 'Turkey', exports: '2,500 tons/year', products: 'Spices, Pulses, Preserves' },
+  { name: 'Austria', exports: '900 tons/year', products: 'Dried Herbs, Organic Oils' },
+  { name: 'Jordan', exports: '2,700 tons/year', products: 'Freekeh, Spices, Thyme' },
+  { name: 'Iraq', exports: '1,500 tons/year', products: 'Lentils, Herbs, Dates' },
+
+];
+
 
   const values = [
     {
