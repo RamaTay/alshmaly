@@ -58,17 +58,16 @@ const BlogSection = () => {
       alt={post.title}
       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
     />   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300">
-    
   </div>
-   
 
   <div className="p-6 flex flex-col flex-grow">
     <div className="flex items-center text-[#054239] text-sm mb-3">
       <Calendar size={16} className="mr-2" />
       {new Date(post.published_at).toLocaleDateString('en-US', { 
         year: 'numeric', 
-        month: 'long',  
+        month: 'long', 
         day: 'numeric' 
+      })} 
     </div>
 
     <h3 className="text-xl font-semibold text-[#054239] mb-3 group-hover:text-[#b9a779] transition-colors duration-300 min-h-[3.5rem]">
