@@ -14,7 +14,7 @@ const MarqueeSection = () => {
     <section className="py-2 bg-[#F7F7F7] border-b-2 border-b-[#edebe0] overflow-hidden w-full">
       <div className="w-full relative">
         <div className="flex animate-marquee whitespace-nowrap">
-          {[...features, ...features, ...features].map((feature, index) => (
+          {[...features, ...features].map((feature, index) => (
             <div 
               key={index} 
               className="inline-flex items-center mx-8 text-[#054239] flex-shrink-0"
@@ -27,9 +27,19 @@ const MarqueeSection = () => {
           ))}
         </div>
       </div>
+      
+      <style jsx global>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+          display: inline-block;
+        }
+      `}</style>
     </section>
   );
 };
 
 export default MarqueeSection;
-
