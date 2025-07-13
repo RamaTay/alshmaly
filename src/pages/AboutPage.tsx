@@ -6,7 +6,7 @@ const AboutPage = () => {
  
   const timeline = [
     { 
-      year: '1999',
+      year: '1998',
       title: 'Company Foundation',
       description: 'Al-Shamali was established in Idlib, Syria, with a vision to export premium Syrian agricultural products.'
     },
