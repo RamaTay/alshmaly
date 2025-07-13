@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useMotionValue, useAnimation } from 'framer-motion';
 import { Leaf, Award, Users, Clock, HandHeart } from 'lucide-react';
 
 const MarqueeSection = () => {
@@ -10,36 +11,74 @@ const MarqueeSection = () => {
     { icon: HandHeart, text: 'Ongoing Trader Support' },
   ];
 
-  // نكرر العناصر لضمان التغطية الكافية
-  const repeatedFeatures = [...features, ...features, ...features];
- 
-  return ( 
-    <section className="py-2 bg-[#F7F7F7] border-b-2 border-b-[#edebe0] overflow-hidden w-full">
-      <div className="relative">
-        <div className="flex animate-marquee whitespace-nowrap w-[200%]">
-          {repeatedFeatures.map((feature, index) => (
-            <div 
-              key={`marquee-item-${index}`} 
-              className="inline-flex items-center mx-8 text-[#054239] flex-shrink-0"
-            > 
-              <div className="w-12 h-12 text-[#054239] rounded-full flex items-center justify-center">
-                <feature.icon size={24} />
-              </div>
-              <span className="ml-4 text-xl font-semibold">{feature.text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+  const duplicatedFeatures = [...features, ...features];
+  const containerRef = useRef(null);
+  const x = useMotionValue(0);
+  const controls = useAnimation();
+  const isHovered = useRef(false);
+  const animationRef = useRef(null);
+  const featureWidth = 300; // عرض كل عنصر
+  const duration = 30; // مدة الدورة الكاملة بالثواني
+
+  const animate = () => {
+    if (!isHovered.current) {
+      const currentX = x.get();
+      const newX = currentX - 1; // حركة ثابتة لليسار
       
-      <style jsx global>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-        }
-      `}</style>
+      if (Math.abs(newX) >= featureWidth * features.length) {
+        x.set(0);
+      } else {
+        x.set(newX);
+      }
+    }
+    animationRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    animationRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
+
+  const handleMouseEnter = () => {
+    isHovered.current = true;
+    controls.start({ opacity: 0.8 });
+  };
+
+  const handleMouseLeave = () => {
+    isHovered.current = false;
+    controls.start({ opacity: 1 });
+    animate();
+  };
+
+  return (
+    <section 
+      className="py-4 bg-[#F7F7F7] border-b-2 border-b-[#edebe0] overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div 
+        ref={containerRef}
+        className="flex"
+        style={{ 
+          x,
+          width: `${featureWidth * duplicatedFeatures.length}px`,
+        }}
+      >
+        {duplicatedFeatures.map((feature, index) => (
+          <div
+            key={`feature-${index}`}
+            className="flex-shrink-0 mx-6 flex items-center"
+            style={{ width: `${featureWidth}px` }}
+          >
+            <div className="w-12 h-12 bg-[#054239] text-white rounded-full flex items-center justify-center">
+              <feature.icon size={24} />
+            </div>
+            <span className="ml-4 text-xl font-semibold text-[#054239]">
+              {feature.text}
+            </span>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
