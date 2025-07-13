@@ -59,6 +59,7 @@ const BlogSection = () => {
       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
     />   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300">
   </div>
+    </div>
 
   <div className="p-6 flex flex-col flex-grow">
     <div className="flex items-center text-[#054239] text-sm mb-3">
