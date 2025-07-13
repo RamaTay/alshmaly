@@ -130,35 +130,7 @@ const DashboardPage = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Quote Requests */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-          <h2 className="text-xl font-semibold text-[#054239] mb-4">Recent Quote Requests</h2>
-          <div className="space-y-4">
-            {stats.recentQuotes.map((quote) => (
-              <div key={quote.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="font-medium text-[#054239]">{quote.customer_name}</p>
-                  <p className="text-sm text-gray-600">{quote.product?.name || 'General Inquiry'}</p>
-                  <p className="text-xs text-gray-500">
-                    {new Date(quote.created_at).toLocaleDateString()}
-                  </p>
-                </div>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                  quote.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                  quote.status === 'reviewed' ? 'bg-blue-100 text-blue-800' :
-                  quote.status === 'responded' ? 'bg-green-100 text-green-800' :
-                  'bg-gray-100 text-gray-800'
-                }`}>
-                  {quote.status}
-                </span>
-              </div>
-            ))}
-            {stats.recentQuotes.length === 0 && (
-              <p className="text-gray-500 text-center py-4">No recent quote requests</p>
-            )}
-          </div>
-        </div>
-
+      
         {/* Recent Contact Messages */}
         <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
           <h2 className="text-xl font-semibold text-[#054239] mb-4">Recent Contact Messages</h2>
