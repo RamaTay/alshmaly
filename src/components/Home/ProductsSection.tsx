@@ -55,7 +55,7 @@ const ProductsSection = () => {
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-[#054239] mb-2 min-h-[3.5rem]">
+        <h3 className="text-xl font-semibold text-[#054239] mb-2 min-h-[3rem]">
           {product.name}
         </h3>
         <p className="text-gray-600 mb-4 flex-grow">
