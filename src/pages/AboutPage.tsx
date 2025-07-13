@@ -190,7 +190,7 @@ return (
         </div>
       </section>
 
-   {/* Export Countries Map */}
+     {/* Export Countries Map */}
 <section className="py-20 bg-[#F7F7F7]">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
@@ -219,5 +219,9 @@ return (
     </div>
   </div>
 </section>
+
+  
+  );
+};
 
 export default AboutPage;
