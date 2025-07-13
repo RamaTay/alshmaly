@@ -198,7 +198,7 @@ return (
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               We proudly export to over 30 countries worldwide, bringing Syrian agricultural excellence to global markets
             </p>
-          </div>
+          </div>*/}
 
           {/* Interactive Map Placeholder */}
       {/*  <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-lg mb-12">
