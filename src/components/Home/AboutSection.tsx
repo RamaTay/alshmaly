@@ -89,7 +89,7 @@ const AboutSection = () => {
               We bring authenticity into your world
             </h2>
             <p className="text-[#edebe0] text-lg leading-relaxed mb-8">
-              For over 25 years, Al-Shamali has been the trusted name in exporting premium Syrian agricultural products. 
+              For over 25 years, Al-Shamaly has been the trusted name in exporting premium Syrian agricultural products. 
               Our commitment to quality and authenticity has made us a preferred partner for traders worldwide, 
               bringing the finest legumes, spices, oils, and herbs from Syrian soil to tables across the globe.
             </p>
